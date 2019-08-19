@@ -1,0 +1,6 @@
+framework module DSGradientProgressView {
+  umbrella header "DSGradientProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}
