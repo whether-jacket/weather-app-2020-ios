@@ -5,13 +5,15 @@ import OverlayContainer
 class ViewController: BaseViewController {
 
     enum OverlayNotch: Int, CaseIterable {
-        case minimum, maximum
+        case hidden, minimum, maximum
     }
 
+    var showsOverlay = false
     let searchController = ContentViewController()
     let overlayController = OverlayContainerViewController()
     private var overlayContainerView = UIView()
-    private let button = UIButton()
+    private let expandButton = UIButton()
+    private let collapseButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +23,30 @@ class ViewController: BaseViewController {
         setConstraints()
     }
 
+    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
+                                        canReachNotchAt index: Int,
+                                        forOverlay overlayViewController: UIViewController) -> Bool {
+        switch OverlayNotch.allCases[index] {
+        case .maximum:
+            return showsOverlay
+        case .minimum:
+            return showsOverlay
+        case .hidden:
+            return !showsOverlay
+        }
+    }
+
     private func initializeViews() {
-        button.apply {
+        expandButton.apply {
             $0.titleColorForNormal = UIColor.black
-            $0.setTitle("Hello world", for: .normal)
-            $0.setOnTapListener(target: self, action: #selector(onButtonTapped))
+            $0.setTitle("Expand", for: .normal)
+            $0.setOnTapListener(target: self, action: #selector(onExpandButtonTapped))
+            view.addSubview($0)
+        }
+        collapseButton.apply {
+            $0.titleColorForNormal = UIColor.black
+            $0.setTitle("Collapse", for: .normal)
+            $0.setOnTapListener(target: self, action: #selector(onCollapseButtonTapped))
             view.addSubview($0)
         }
         view.addSubview(overlayContainerView)
@@ -33,16 +54,16 @@ class ViewController: BaseViewController {
     }
 
     private func setConstraints() {
-        button.snp.makeConstraints { (make) -> Void in
+        expandButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(progressBar.snp.top).offset(VerticalSpacings.m)
             make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(HorizontalSpacings.m)
             make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-HorizontalSpacings.m)
         }
         overlayContainerView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(button.snp.bottom).offset(VerticalSpacings.m)
-            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(HorizontalSpacings.m)
-            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-HorizontalSpacings.m)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-HorizontalSpacings.m)
+            make.top.equalTo(expandButton.snp.bottom).offset(VerticalSpacings.m)
+            make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-VerticalSpacings.m)
         }
     }
 
@@ -58,18 +79,28 @@ class ViewController: BaseViewController {
                 return availableSpace * 3 / 4
             case .minimum:
                 return availableSpace * 1 / 4
+            case .hidden:
+                return 0
         }
     }
 
-    @objc private func onButtonTapped() {
-        log.verbose("button tapped")
+    @objc private func onExpandButtonTapped() {
+        log.verbose("expand button tapped")
+        showsOverlay.toggle()
+        let targetNotch: OverlayNotch = showsOverlay ? .minimum : .hidden
+        overlayController.moveOverlay(toNotchAt: targetNotch.rawValue, animated: true)
+    }
+
+    @objc private func onCollapseButtonTapped() {
+        log.verbose("collapse button tapped")
+        showsOverlay.toggle()
+        let targetNotch: OverlayNotch = showsOverlay ? .minimum : .hidden
+        overlayController.moveOverlay(toNotchAt: targetNotch.rawValue, animated: true)
     }
 }
 
 
 extension ViewController: OverlayContainerViewControllerDelegate {
-
-    // MARK: - OverlayContainerViewControllerDelegate
 
     func numberOfNotches(in containerViewController: OverlayContainerViewController) -> Int {
         return OverlayNotch.allCases.count
@@ -92,11 +123,12 @@ extension ViewController: OverlayContainerViewControllerDelegate {
                                         at point: CGPoint,
                                         in coordinateSpace: UICoordinateSpace) -> Bool {
 //        guard let header = (overlayViewController as? ContentViewController)?.header else {
-            return false
+            return true
 //        }
 //        let convertedPoint = coordinateSpace.convert(point, to: header)
 //        return header.bounds.contains(convertedPoint)
     }
+
 }
 
 extension BaseViewController {

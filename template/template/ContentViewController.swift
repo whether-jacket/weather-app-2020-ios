@@ -11,10 +11,9 @@ class ContentViewController: BaseViewController, UITableViewDelegate, UITableVie
     let cellReuseIdentifier = "cell"
     let tableView = UITableView()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.gray
         initializeViews()
         setConstraints()
     }
