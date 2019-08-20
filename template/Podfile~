@@ -8,4 +8,5 @@ target 'template' do
   pod 'SwiftyBeaver', '~> 1.7.0'
   pod 'RxSwift', '~> 5'
   pod 'SwifterSwift', '~> 5.0.0'
+  pod 'DSGradientProgressView', '~> 1'
 end
