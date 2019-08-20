@@ -9,8 +9,9 @@ class ViewController: BaseViewController {
     }
 
     var showsOverlay = false
-    let searchController = ContentViewController()
-    let overlayController = OverlayContainerViewController()
+    private let devicesListViewController = DevicesListViewController()
+    private let deviceViewController = DeviceViewController()
+    private let overlayController = OverlayContainerViewController()
     private var overlayContainerView = UIView()
     private let expandButton = UIButton()
     private let collapseButton = UIButton()
@@ -59,32 +60,49 @@ class ViewController: BaseViewController {
             make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(HorizontalSpacings.m)
             make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-HorizontalSpacings.m)
         }
-        overlayContainerView.snp.makeConstraints { (make) -> Void in
+        collapseButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(expandButton.snp.bottom).offset(VerticalSpacings.m)
+            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(HorizontalSpacings.m)
+            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-HorizontalSpacings.m)
+        }
+        overlayContainerView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(collapseButton.snp.bottom).offset(VerticalSpacings.m)
             make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
             make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-VerticalSpacings.m)
+            make.bottom.equalTo(view.snp.bottom)
         }
     }
 
     private func setupBottomSheet() {
         overlayController.delegate = self
-        overlayController.viewControllers = [searchController]
-        addChild(overlayController, in: overlayContainerView)
+        setDevicesListBottomSheet()
     }
 
     private func notchHeight(for notch: OverlayNotch, availableSpace: CGFloat) -> CGFloat {
         switch notch {
-            case .maximum:
-                return availableSpace * 3 / 4
-            case .minimum:
-                return availableSpace * 1 / 4
-            case .hidden:
-                return 0
+        case .maximum:
+            return availableSpace * 3 / 4
+        case .minimum:
+            return availableSpace * 1 / 4
+        case .hidden:
+            return 0
         }
     }
 
+    private func setDevicesListBottomSheet() {
+        removeChild(overlayController)
+        overlayController.viewControllers = [devicesListViewController]
+        addChild(overlayController, in: overlayContainerView)
+    }
+
+    private func setDeviceBottomSheet() {
+        removeChild(overlayController)
+        overlayController.viewControllers = [deviceViewController]
+        addChild(overlayController, in: overlayContainerView)
+    }
+
     @objc private func onExpandButtonTapped() {
+        setDevicesListBottomSheet()
         log.verbose("expand button tapped")
         showsOverlay.toggle()
         let targetNotch: OverlayNotch = showsOverlay ? .minimum : .hidden
@@ -92,6 +110,7 @@ class ViewController: BaseViewController {
     }
 
     @objc private func onCollapseButtonTapped() {
+        setDeviceBottomSheet()
         log.verbose("collapse button tapped")
         showsOverlay.toggle()
         let targetNotch: OverlayNotch = showsOverlay ? .minimum : .hidden
@@ -115,7 +134,7 @@ extension ViewController: OverlayContainerViewControllerDelegate {
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
                                         scrollViewDrivingOverlay overlayViewController: UIViewController) -> UIScrollView? {
-        return (overlayViewController as? ContentViewController)?.tableView
+        return (overlayViewController as? DevicesListViewController)?.tableView
     }
 
     func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
@@ -123,7 +142,7 @@ extension ViewController: OverlayContainerViewControllerDelegate {
                                         at point: CGPoint,
                                         in coordinateSpace: UICoordinateSpace) -> Bool {
 //        guard let header = (overlayViewController as? ContentViewController)?.header else {
-            return true
+        return true
 //        }
 //        let convertedPoint = coordinateSpace.convert(point, to: header)
 //        return header.bounds.contains(convertedPoint)
@@ -133,7 +152,9 @@ extension ViewController: OverlayContainerViewControllerDelegate {
 
 extension BaseViewController {
     func addChild(_ child: UIViewController, in containerView: UIView) {
-        guard containerView.isDescendant(of: view) else { return }
+        guard containerView.isDescendant(of: view) else {
+            return
+        }
         addChild(child)
         containerView.addSubview(child.view)
         child.view.pinToSuperview()
@@ -149,7 +170,9 @@ extension BaseViewController {
 
 extension UIView {
     func pinToSuperview(with insets: UIEdgeInsets = .zero, edges: UIRectEdge = .all) {
-        guard let superview = superview else { return }
+        guard let superview = superview else {
+            return
+        }
         translatesAutoresizingMaskIntoConstraints = false
         if edges.contains(.top) {
             topAnchor.constraint(equalTo: superview.topAnchor, constant: insets.top).isActive = true

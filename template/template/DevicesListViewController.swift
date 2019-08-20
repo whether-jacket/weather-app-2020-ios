@@ -2,10 +2,10 @@ import Foundation
 import UIKit
 import SnapKit
 
-class ContentViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class DevicesListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     let button = UIButton()
-    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
+    let animals: [String] = ["S5", "S3", "Recon", "S8", "S10"]
 
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -20,7 +20,7 @@ class ContentViewController: BaseViewController, UITableViewDelegate, UITableVie
 
     private func initializeViews() {
         button.titleColorForNormal = UIColor.black
-        button.setTitle("Hello world", for: .normal)
+        button.setTitle("Devices List", for: .normal)
         view.addSubview(button)
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)

@@ -25,8 +25,9 @@
 		A21C3B2E18B59287232D0A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21C305E227EFB2887276759 /* Main.storyboard */; };
 		A21C3B6933D8527166121D27 /* templateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3A68EE4A1D8A2E486B43 /* templateTests.swift */; };
 		A21C3B74A21BE7BA4B9F4975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C31602C03A3E807D1DF03 /* AppDelegate.swift */; };
-		A21C3BCAD2247E93896F4937 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3BBB248778E37A624B22 /* ContentViewController.swift */; };
+		A21C3BCAD2247E93896F4937 /* DevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3BBB248778E37A624B22 /* DevicesListViewController.swift */; };
 		A21C3E83243E18DF4084B13D /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3EB523A79A2A8CD251A8 /* UILabelExtensions.swift */; };
+		A21C3F3AA48A145CBE57C382 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C3FBEDF3E592BCCEC4A99 /* DeviceViewController.swift */; };
 		A21C3F526337D9F538D4FB08 /* templateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21C33B971FC0B62A5C41F38 /* templateUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,10 +74,11 @@
 		A21C3B39B532FF8C811226A7 /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		A21C3B8684F57C03411C4ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A21C3B95B57201720BCB7226 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
-		A21C3BBB248778E37A624B22 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		A21C3BBB248778E37A624B22 /* DevicesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesListViewController.swift; sourceTree = "<group>"; };
 		A21C3C0E8F2EDE2EE7297047 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A21C3D70BAC90764B10405AE /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		A21C3EB523A79A2A8CD251A8 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
+		A21C3FBEDF3E592BCCEC4A99 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +136,8 @@
 				A21C39FC583B4AA93CB62EE3 /* ViewController.swift */,
 				A21C35BF00BD5A2D2A5F3287 /* utilities */,
 				A21C37F959A7A57771BB4AF4 /* Dimens.swift */,
-				A21C3BBB248778E37A624B22 /* ContentViewController.swift */,
+				A21C3BBB248778E37A624B22 /* DevicesListViewController.swift */,
+				A21C3FBEDF3E592BCCEC4A99 /* DeviceViewController.swift */,
 			);
 			path = template;
 			sourceTree = "<group>";
@@ -395,7 +398,8 @@
 				A21C313DF863C133B8BA1983 /* UIViewExtensions.swift in Sources */,
 				A21C357397A3A59E193D0856 /* BorderedButton.swift in Sources */,
 				A21C361A7D66894CC08C0533 /* Dimens.swift in Sources */,
-				A21C3BCAD2247E93896F4937 /* ContentViewController.swift in Sources */,
+				A21C3BCAD2247E93896F4937 /* DevicesListViewController.swift in Sources */,
+				A21C3F3AA48A145CBE57C382 /* DeviceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
