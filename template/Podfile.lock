@@ -1,5 +1,10 @@
 PODS:
   - DSGradientProgressView (1.0.1)
+  - GoogleMaps (3.3.0):
+    - GoogleMaps/Maps (= 3.3.0)
+  - GoogleMaps/Base (3.3.0)
+  - GoogleMaps/Maps (3.3.0):
+    - GoogleMaps/Base
   - OverlayContainer (3.0.1)
   - Pulley (2.7.0)
   - RxSwift (5.0.0)
@@ -28,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - DSGradientProgressView (~> 1)
+  - GoogleMaps (~> 3.3.0)
   - OverlayContainer
   - Pulley (~> 2.7.0)
   - RxSwift (~> 5)
@@ -39,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DSGradientProgressView
+    - GoogleMaps
     - OverlayContainer
     - Pulley
     - RxSwift
@@ -49,6 +56,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DSGradientProgressView: 256d85dc3a92b429ace38617ceb459faec42bb41
+  GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
   OverlayContainer: 69b0f8f87c0e6f63baa25d27fe30be6d3bd3664b
   Pulley: 028ddcc7d2dcbc078d71b61b7eee8e786d72c14a
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
@@ -57,6 +65,6 @@ SPEC CHECKSUMS:
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
 
-PODFILE CHECKSUM: 6903610044ac0e872694098c1988ead2cb8a842a
+PODFILE CHECKSUM: f27724b47d764089680b91485cd84e4e138eb48a
 
 COCOAPODS: 1.7.4

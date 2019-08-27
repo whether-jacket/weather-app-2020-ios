@@ -9,5 +9,6 @@ target 'template' do
   pod 'RxSwift', '~> 5'
   pod 'SwifterSwift', '~> 5.0.0'
   pod 'DSGradientProgressView', '~> 1'
+  pod 'GoogleMaps', '~> 3.3.0'
   pod 'OverlayContainer'
 end
