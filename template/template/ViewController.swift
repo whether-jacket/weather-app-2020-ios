@@ -6,6 +6,14 @@ class ViewController: BaseViewController {
 
     enum OverlayNotch: Int, CaseIterable {
         case hidden, minimum, maximum
+
+        func getHeight(withHeight availableHeight: CGFloat) -> CGFloat {
+            switch self {
+            case .hidden: return 0
+            case .minimum: return availableHeight * 1 / 4
+            case .maximum: return availableHeight * 3 / 4
+            }
+        }
     }
 
     var showsOverlay = false
@@ -79,14 +87,7 @@ class ViewController: BaseViewController {
     }
 
     private func notchHeight(for notch: OverlayNotch, availableSpace: CGFloat) -> CGFloat {
-        switch notch {
-        case .maximum:
-            return availableSpace * 3 / 4
-        case .minimum:
-            return availableSpace * 1 / 4
-        case .hidden:
-            return 0
-        }
+        return notch.getHeight(withHeight: availableSpace)
     }
 
     private func setDevicesListBottomSheet() {
