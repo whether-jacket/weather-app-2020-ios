@@ -2,11 +2,12 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'template' do
-  pod 'Pulley', '~> 2.7.0'
-  pod 'SnapKit', '~> 5.0.1'
+  pod 'DSGradientProgressView', '~> 1.0.1'
+  pod 'MaterialComponents', '~> 86.0.0'
+  pod 'Moya/RxSwift', '14.0.0-alpha.1'
+  pod 'ResponseDetective', '~> 1.3.0'
+  pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftDate', '~> 6.0.3'
-  pod 'SwiftyBeaver', '~> 1.7.0'
-  pod 'RxSwift', '~> 5'
-  pod 'SwifterSwift', '~> 5.0.0'
-  pod 'DSGradientProgressView', '~> 1'
+  pod 'SwifterSwift'
+  pod 'SwiftyBeaver'
 end

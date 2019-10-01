@@ -1,10 +1,9 @@
 import Foundation
 import UIKit
-import SwifterSwift
 
 class BorderedButton: UIButton {
     private static let BORDER_WIDTH = 1.cgFloat
-    private static let FADE_ANIMATION_DUATAION = 0.4
+    private static let FADE_ANIMATION_DURATION = 0.4
     private static let FADE_ALPHA = 0.2.cgFloat
 
     override init(frame: CGRect) {
@@ -38,7 +37,7 @@ class BorderedButton: UIButton {
             CABasicAnimation(keyPath: "borderColor").apply {
                 $0.fromValue = fadedColor
                 $0.toValue = tintColor.cgColor
-                $0.duration = BorderedButton.FADE_ANIMATION_DUATAION
+                $0.duration = BorderedButton.FADE_ANIMATION_DURATION
                 layer.add($0, forKey: "")
             }
         }
