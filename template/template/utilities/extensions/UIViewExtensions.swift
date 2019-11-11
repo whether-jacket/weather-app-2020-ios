@@ -9,7 +9,7 @@ extension UIView {
     func setOnDoubleTapListener(target: Any, action: Selector, argument: Any? = nil) {
         self.setOnTapListener(tapNumber: 2, target: target, action: action, argument: argument)
     }
-    
+
     func setOnTapListener(tapNumber: Int, target: Any, action: Selector, argument: Any? = nil) {
         let tap = MyTapGestureRecognizer(target: target, action: action)
         tap.argument = argument
@@ -17,7 +17,7 @@ extension UIView {
         addGestureRecognizer(tap)
         isUserInteractionEnabled = true
     }
-    
+
     func setOnLongTapListener(target: Any, action: Selector) {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: action)
         self.addGestureRecognizer(longPressGesture)
@@ -43,7 +43,14 @@ extension UIView {
     }
 
     func invalidateView() {
-        self.setNeedsDisplay()
+        setNeedsDisplay()
+    }
+
+    func invalidateSubViews() {
+        setNeedsDisplay()
+        subviews.map { view in
+            view.invalidateSubViews()
+        }
     }
 
     func showViaFade(_ show: Bool) {

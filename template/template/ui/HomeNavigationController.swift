@@ -3,6 +3,7 @@ import UIKit
 
 class HomeNavigationController: UINavigationController, UINavigationBarDelegate {
 
+    // return: false => will cancel popBack
     public func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
         if viewControllers.count < navigationBar.items!.count {
             return true
@@ -15,13 +16,10 @@ class HomeNavigationController: UINavigationController, UINavigationBarDelegate 
                     }
                 }
             }
-            // return false => so navigator will cancel the popBack
-            //  until user confirm or cancel
             return false
-        } else {
-            DispatchQueue.main.async {
-                self.popViewController(animated: true)
-            }
+        }
+        DispatchQueue.main.async {
+            self.popViewController(animated: true)
         }
         return true
     }

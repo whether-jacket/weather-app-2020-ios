@@ -38,4 +38,18 @@ extension UIViewController {
     internal func popToRoot() {
         navigationController?.popToRootViewController(animated: true)
     }
+
+    internal func popCount(_ popCount: Int) {
+        guard let viewControllerCount = navigationController?.viewControllers.count else { return }
+        guard let viewControllerAtIndex = navigationController?.viewControllers[viewControllerCount - popCount - 1] else { return }
+        navigationController?.popToViewController(viewControllerAtIndex, animated: true)
+    }
+
+    public func addActionSheetForiPad(_ actionSheet: UIAlertController) {
+        if let popoverPresentationController = actionSheet.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverPresentationController.permittedArrowDirections = []
+        }
+    }
 }

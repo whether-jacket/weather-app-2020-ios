@@ -64,85 +64,98 @@ open class Phone {
 
     // The name of personal device, like "Batuhan's iPhone"
     static public var name: String {
-        return UIDevice.current.name
+        UIDevice.current.name
     }
 
     // The name of running OS in the device, such as iOS, tvOS and much more.
     static public var systemName: String {
-        return UIDevice.current.systemName
+        UIDevice.current.systemName
     }
 
     // The version of running OS in the device. (e.g. 9.0, 10.0.)
     static public var systemVersion: String {
-        return UIDevice.current.systemVersion
+        UIDevice.current.systemVersion
     }
 
     static public var model: String {
-        return UIDevice.current.model
+        UIDevice.current.model
     }
 
     static public var determinedModel: String {
-        return UIDevice.current.modelName
+        UIDevice.current.modelName
     }
 
     static public var uuid: String {
-        return UIDevice.current.identifierForVendor!.uuidString
+        UIDevice.current.identifierForVendor!.uuidString
     }
 
     static public var isRetina: Bool {
-        return UIScreen.main.scale > 1.0
+        UIScreen.main.scale > 1.0
     }
 
     static public var isSimulator: Bool {
-        return determinedModel == "Simulator"
+        determinedModel == "Simulator"
     }
 
     static public var isiPhone: Bool {
-        return determinedModel.contains("iPhone")
+        determinedModel.contains("iPhone")
     }
 
     static public var isiPad: Bool {
-        return determinedModel.contains("iPad")
+        determinedModel.contains("iPad")
     }
 
     static public var isiPod: Bool {
-        return determinedModel.contains("iPod")
+        determinedModel.contains("iPod")
     }
 
     static public var isTV: Bool {
-        return determinedModel.contains("TV")
+        determinedModel.contains("TV")
     }
 
+    /*
+     * Screen
+     */
+    // doesn't take into account the current interface orientation
     static public var screenBounds: CGRect {
-        return UIScreen.main.bounds
+        UIScreen.main.bounds
+    }
+
+    // view should be of ViewController's main view
+    static public func screenWidth(_ view: UIView) -> CGFloat {
+        view.bounds.width
+    }
+
+    static public func screenHeight(_ view: UIView) -> CGFloat {
+        view.bounds.height
     }
 
     /*
      * Battery
      */
     static public var batteryState: UIDevice.BatteryState {
-        return UIDevice.current.batteryState
+        UIDevice.current.batteryState
     }
 
     static public var batteryLevel: Int {
-        return Int(UIDevice.current.batteryLevel * 100)
+        Int(UIDevice.current.batteryLevel * 100).abs
     }
 
     /*
      * Locale
      */
     static public var regionCode: String {
-        return Locale.current.regionCode!
+        Locale.current.regionCode!
     }
 
     static public var languageCode: String {
-        return Locale.current.languageCode!
+        Locale.current.languageCode!
     }
 
     /*
      * BLE
      */
     static public var hasBleDevice: Bool {
-        return CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self)
+        CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self)
     }
 }
