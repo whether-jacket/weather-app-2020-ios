@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: BaseViewController {
+class SettingsViewController: BaseViewController {
 
     private let button = UIButton()
 
@@ -13,7 +13,7 @@ class HomeViewController: BaseViewController {
 
     private func initializeViews() {
         button.titleColorForNormal = UIColor.black
-        button.setTitle("Hello world", for: .normal)
+        button.setTitle("Hello Settings", for: .normal)
         view.addSubview(button)
     }
 

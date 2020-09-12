@@ -24,7 +24,7 @@ class RootViewController: BaseViewController {
     }
 
     func showHome() {
-        let mainViewController = HomeViewController()
+        let mainViewController = LandingHomeViewController()
         let mainScreen = HomeNavigationController(rootViewController: mainViewController)
         animateFadeTransition(to: mainScreen) { [weak self] in
         }
