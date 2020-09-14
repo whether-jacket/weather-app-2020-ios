@@ -8,7 +8,7 @@ class LandingHomeViewController: UITabBarController {
     }
 
     private func initializeViews() {
-        let homeViewControllers = HomeViewController().apply {
+        let homeViewController = HomeViewController().apply {
             $0.tabBarItem = BottomNavTabs.HOME.getTabBarItem()
         }
 
@@ -20,7 +20,7 @@ class LandingHomeViewController: UITabBarController {
             $0.tabBarItem = BottomNavTabs.SETTINGS.getTabBarItem()
         }
         
-        viewControllers = [homeViewControllers, citiesViewController, settingsViewController]
+        viewControllers = [homeViewController, citiesViewController, settingsViewController]
     }
 }
 
