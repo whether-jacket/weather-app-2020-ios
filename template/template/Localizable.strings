@@ -1,3 +1,10 @@
 "home" = "Home";
 "cities" = "Cities";
 "settings" = "Settings";
+"temperature_in_metric" = "Temperature in metric";
+"speed_in_metric" = "Speed in metric";
+"dark_mode" = "Dark mode";
+"theming" = "Theming";
+"widgets" = "Widgets";
+"sample_pages" = "Sample Pages";
+"design_tokens" = "Design Tokens";
