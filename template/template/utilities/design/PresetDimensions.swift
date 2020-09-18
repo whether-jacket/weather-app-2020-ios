@@ -4,14 +4,21 @@ struct Spacings {
     static let quarter = 2
     static let half = 4
     static let spacing = 8
-    static let double = spacing * 2     // 16
-    static let triple = spacing * 3     // 24
-    static let quadruple = spacing * 4  // 32
-    static let quintuple = spacing * 5  // 40
-    static let sextuple = spacing * 6   // 48
-    static let septuple = spacing * 7   // 56
-    static let octuple = spacing * 8    // 64
-    static let nonuple = spacing * 9    // 72
+    static let double = spacing * 2             // 16
+    static let triple = spacing * 3             // 24
+    static let quadruple = spacing * 4          // 32
+    static let quintuple = spacing * 5          // 40
+    static let sextuple = spacing * 6           // 48
+    static let septuple = spacing * 7           // 56
+    static let octuple = spacing * 8            // 64
+    static let nonuple = spacing * 9            // 72
+    static let decuple = spacing * 10           // 80
+    static let undecuple = spacing * 11         // 88
+    static let duodecuple = spacing * 12        // 96
+    static let tredecuple = spacing * 13        // 104
+    static let quattuordecuple = spacing * 14   // 112
+    static let quindecuple = spacing * 15       // 120
+    static let sexdecuple = spacing * 16        // 128
 }
 
 struct HorizontalSpacings {
@@ -19,11 +26,9 @@ struct HorizontalSpacings {
     static let xs = Spacings.half
     static let s = Spacings.spacing
     static let m = Spacings.double
-    static let l = Spacings.triple
-    static let xl = Spacings.quadruple
-    static let xl2 = Spacings.quintuple
-    static let xl3 = Spacings.sextuple
-    static let xl4 = Spacings.septuple
+    static let l = Spacings.quadruple
+    static let xl = Spacings.octuple
+    static let xl2 = Spacings.sexdecuple
 }
 
 struct VerticalSpacings {
@@ -31,23 +36,9 @@ struct VerticalSpacings {
     static let xs = Spacings.half
     static let s = Spacings.spacing
     static let m = Spacings.double
-    static let l = Spacings.triple
-    static let xl = Spacings.quadruple
-    static let xl2 = Spacings.quintuple
-    static let xl3 = Spacings.sextuple
-    static let xl4 = Spacings.septuple
-}
-
-struct Padding {
-    static let xxs = Spacings.quarter
-    static let xs = Spacings.half
-    static let s = Spacings.spacing
-    static let m = Spacings.double
-    static let l = Spacings.triple
-    static let xl = Spacings.quadruple
-    static let xl2 = Spacings.quintuple
-    static let xl3 = Spacings.sextuple
-    static let xl4 = Spacings.septuple
+    static let l = Spacings.quadruple
+    static let xl = Spacings.octuple
+    static let xl2 = Spacings.sexdecuple
 }
 
 struct CornerRadius {
@@ -58,19 +49,12 @@ struct CornerRadius {
     static let l = 10
 }
 
-struct TextSizes {
-    private static let xxs = 12
-    private static let xs = 14
-    private static let s = 16
-    private static let m = 18
-    private static let l = 22
-    private static let xl = 26
-    private static let xxl = 32
-    private static let xl3 = 42
-    private static let xl4 = 64
-
-    static let body = xs
-    static let subhead = s
-    static let title = l // 20 on Android
-    static let large = xl // 22 on Android
+struct LetterSpacings {
+    static let xxs: Float = -1.5
+    static let xs: Float = -1.0
+    static let s: Float = -0.5
+    static let m: Float = 0.0
+    static let l: Float = 1.0
+    static let xl: Float = 2.0
+    static let xl2: Float = 3.0
 }

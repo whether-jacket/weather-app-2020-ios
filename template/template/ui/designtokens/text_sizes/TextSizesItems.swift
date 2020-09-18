@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 
-enum TextAppearances {
-    case Headline, Subheadline, Body, Callout, Footnote, Caption1, Caption2
+enum TextSizeItems: Int, CaseIterable {
+    case Headline, Subheadline, Body, Callout, Footnote, Caption1, Caption2;
 
     func getFont() -> UIFont {
         switch self {
@@ -22,21 +22,24 @@ enum TextAppearances {
             return UIFont.preferredFont(forTextStyle: .caption2)
         }
     }
+    
+    var title: String {
+        switch self {
+        case .Headline:
+            return Strings.Headline
+        case .Subheadline:
+            return Strings.Subheadline
+        case .Body:
+            return Strings.Body
+        case .Callout:
+            return Strings.Callout
+        case .Footnote:
+            return Strings.Footnote
+        case .Caption1:
+            return Strings.Caption1
+        case .Caption2:
+            return Strings.Caption2
+        }
+    }
 }
 
-extension UILabel {
-    func setTextAppearance(_ appearance: TextAppearances) {
-        self.font = appearance.getFont()
-    }
-
-    convenience init(textAppearance: TextAppearances) {
-        self.init()
-        self.setTextAppearance(textAppearance)
-    }
-}
-
-extension UITableViewCell {
-    func setTextAppearance(_ appearance: TextAppearances) {
-        self.textLabel?.setTextAppearance(appearance)
-    }
-}
