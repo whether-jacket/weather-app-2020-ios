@@ -53,4 +53,10 @@ public class Strings {
     public static let Aqua = "Aqua"
     public static let Gainsboro = "Gainsboro"
     public static let Yellow = "Yellow"
+    
+    // Widgets
+    public static var OK = "OK"
+    public static var Label = "Label"
+    public static var Progress = "Progress"
+    public static var Switch = "Switch"
 }

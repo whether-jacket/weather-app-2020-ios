@@ -59,6 +59,13 @@
 		688A3ADD251435F600C5C13B /* LetterSpacingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AC3251435F600C5C13B /* LetterSpacingItems.swift */; };
 		688A3ADE251435F600C5C13B /* LetterSpacingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AC4251435F600C5C13B /* LetterSpacingsViewController.swift */; };
 		688A3AE125143A3D00C5C13B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AE025143A3C00C5C13B /* Images.swift */; };
+		688A3AE7251442F000C5C13B /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AE3251442F000C5C13B /* Widgets.swift */; };
+		688A3AE8251442F000C5C13B /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AE4251442F000C5C13B /* SampleViewController.swift */; };
+		688A3AE9251442F000C5C13B /* WidgetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AE5251442F000C5C13B /* WidgetsViewController.swift */; };
+		688A3AEA251442F000C5C13B /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AE6251442F000C5C13B /* WidgetTableViewCell.swift */; };
+		688A3AF12514444100C5C13B /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AEC2514444100C5C13B /* LabelViewController.swift */; };
+		688A3AF22514444100C5C13B /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AEE2514444100C5C13B /* ProgressViewController.swift */; };
+		688A3AF32514444100C5C13B /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AF02514444100C5C13B /* SwitchViewController.swift */; };
 		68D0472D250CB6E60074C284 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0472C250CB6E60074C284 /* SettingsViewController.swift */; };
 		68D0472F250CB72A0074C284 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0472E250CB72A0074C284 /* CitiesViewController.swift */; };
 		68D04731250CB7B40074C284 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D04730250CB7B40074C284 /* HomeViewController.swift */; };
@@ -145,6 +152,13 @@
 		688A3AC3251435F600C5C13B /* LetterSpacingItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterSpacingItems.swift; sourceTree = "<group>"; };
 		688A3AC4251435F600C5C13B /* LetterSpacingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterSpacingsViewController.swift; sourceTree = "<group>"; };
 		688A3AE025143A3C00C5C13B /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		688A3AE3251442F000C5C13B /* Widgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
+		688A3AE4251442F000C5C13B /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		688A3AE5251442F000C5C13B /* WidgetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetsViewController.swift; sourceTree = "<group>"; };
+		688A3AE6251442F000C5C13B /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
+		688A3AEC2514444100C5C13B /* LabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
+		688A3AEE2514444100C5C13B /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		688A3AF02514444100C5C13B /* SwitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		68D0472C250CB6E60074C284 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		68D0472E250CB72A0074C284 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		68D04730250CB7B40074C284 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +219,7 @@
 		6867AB5E2343F36B00A32328 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				688A3AE2251442C700C5C13B /* widgets */,
 				688A3AA3251435BA00C5C13B /* designtokens */,
 				68D0472B250CB6C60074C284 /* home */,
 				68D0472A250CB6BC0074C284 /* cities */,
@@ -357,6 +372,52 @@
 				688A3AC4251435F600C5C13B /* LetterSpacingsViewController.swift */,
 			);
 			path = letter_spacings;
+			sourceTree = "<group>";
+		};
+		688A3AE2251442C700C5C13B /* widgets */ = {
+			isa = PBXGroup;
+			children = (
+				688A3AF42514465200C5C13B /* landing_page */,
+				688A3AEB2514444100C5C13B /* label */,
+				688A3AED2514444100C5C13B /* progressview */,
+				688A3AEF2514444100C5C13B /* switch */,
+				688A3AE4251442F000C5C13B /* SampleViewController.swift */,
+			);
+			path = widgets;
+			sourceTree = "<group>";
+		};
+		688A3AEB2514444100C5C13B /* label */ = {
+			isa = PBXGroup;
+			children = (
+				688A3AEC2514444100C5C13B /* LabelViewController.swift */,
+			);
+			path = label;
+			sourceTree = "<group>";
+		};
+		688A3AED2514444100C5C13B /* progressview */ = {
+			isa = PBXGroup;
+			children = (
+				688A3AEE2514444100C5C13B /* ProgressViewController.swift */,
+			);
+			path = progressview;
+			sourceTree = "<group>";
+		};
+		688A3AEF2514444100C5C13B /* switch */ = {
+			isa = PBXGroup;
+			children = (
+				688A3AF02514444100C5C13B /* SwitchViewController.swift */,
+			);
+			path = switch;
+			sourceTree = "<group>";
+		};
+		688A3AF42514465200C5C13B /* landing_page */ = {
+			isa = PBXGroup;
+			children = (
+				688A3AE5251442F000C5C13B /* WidgetsViewController.swift */,
+				688A3AE3251442F000C5C13B /* Widgets.swift */,
+				688A3AE6251442F000C5C13B /* WidgetTableViewCell.swift */,
+			);
+			path = landing_page;
 			sourceTree = "<group>";
 		};
 		68D04729250CB66E0074C284 /* settings */ = {
@@ -661,11 +722,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688A3AEA251442F000C5C13B /* WidgetTableViewCell.swift in Sources */,
 				6867AB882343F84100A32328 /* UIViewExtensions.swift in Sources */,
 				6867AB702343F62700A32328 /* BorderedButton.swift in Sources */,
 				6867AB922343F8AE00A32328 /* ThemeExtensions.swift in Sources */,
 				6867AB8A2343F85D00A32328 /* PresetColors.swift in Sources */,
 				688A3ACB251435F600C5C13B /* TextSizesItems.swift in Sources */,
+				688A3AF32514444100C5C13B /* SwitchViewController.swift in Sources */,
 				6867AB662343F59E00A32328 /* Intents.swift in Sources */,
 				688A3ACF251435F600C5C13B /* VerticalCellView.swift in Sources */,
 				6867AB722343F63B00A32328 /* PassThroughView.swift in Sources */,
@@ -679,6 +742,7 @@
 				688A3AD3251435F600C5C13B /* SpacingsViewController.swift in Sources */,
 				688A3ACA251435F600C5C13B /* TextSizesViewController.swift in Sources */,
 				6867AB942343FA4E00A32328 /* HomeNavigationController.swift in Sources */,
+				688A3AF12514444100C5C13B /* LabelViewController.swift in Sources */,
 				6867AB7C2343F73300A32328 /* RxExtensions.swift in Sources */,
 				68D04735250CC17B0074C284 /* Strings.swift in Sources */,
 				6867AB782343F70100A32328 /* DateExtensions.swift in Sources */,
@@ -689,11 +753,13 @@
 				6867AB6A2343F5D200A32328 /* Phone.swift in Sources */,
 				6867AB642343F58A00A32328 /* DateTimeFormats.swift in Sources */,
 				6867AB7A2343F71B00A32328 /* NSObjectExtensions.swift in Sources */,
+				688A3AF22514444100C5C13B /* ProgressViewController.swift in Sources */,
 				6867AB8E2343F88200A32328 /* TextAppearances.swift in Sources */,
 				6867AB862343F82800A32328 /* UIViewControllerExtensions.swift in Sources */,
 				688A3ADD251435F600C5C13B /* LetterSpacingItems.swift in Sources */,
 				6867AB902343F89600A32328 /* Theme.swift in Sources */,
 				68D0472D250CB6E60074C284 /* SettingsViewController.swift in Sources */,
+				688A3AE9251442F000C5C13B /* WidgetsViewController.swift in Sources */,
 				688A3AD9251435F600C5C13B /* DesignTokenLandingPageViewController.swift in Sources */,
 				688A3ADE251435F600C5C13B /* LetterSpacingsViewController.swift in Sources */,
 				68D0472F250CB72A0074C284 /* CitiesViewController.swift in Sources */,
@@ -704,11 +770,13 @@
 				6867AB842343F80600A32328 /* UITableViewExtensions.swift in Sources */,
 				A21C361A7D66894CC08C0533 /* Dimens.swift in Sources */,
 				688A3AD5251435F600C5C13B /* HorizontalSpacingItems.swift in Sources */,
+				688A3AE7251442F000C5C13B /* Widgets.swift in Sources */,
 				6867AB682343F5BA00A32328 /* Logger.swift in Sources */,
 				6867AB8C2343F86E00A32328 /* PresetDimensions.swift in Sources */,
 				688A3ADA251435F600C5C13B /* LandingPageItems.swift in Sources */,
 				6867AB7E2343F78700A32328 /* StringExtensions.swift in Sources */,
 				688A3AD2251435F600C5C13B /* VerticalBlockView.swift in Sources */,
+				688A3AE8251442F000C5C13B /* SampleViewController.swift in Sources */,
 				688A3AC9251435F600C5C13B /* TextSizeCellView.swift in Sources */,
 				688A3ACD251435F600C5C13B /* ColorItems.swift in Sources */,
 				688A3AE125143A3D00C5C13B /* Images.swift in Sources */,
