@@ -21,14 +21,16 @@ class HorizontalSpacingsViewController : BaseViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HorizontalCellView.IDENTIFIER) as! HorizontalCellView
         let position = indexPath.row
-        cell.setHorizontalSpacingItem(HorizontalSpacingsItems.allCases[position])
+        let cell = tableView.dequeueReusableCell(withIdentifier: HorizontalCellView.IDENTIFIER) as! HorizontalCellView
+        cell.apply {
+            $0.setHorizontalSpacingItem(HorizontalSpacingsItems.allCases[position])
+            $0.applyTheme(getCurrentTheme())
+        }
         return cell
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.delegate = self
             $0.dataSource = self

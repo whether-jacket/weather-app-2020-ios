@@ -32,7 +32,6 @@ class TextSizeCellView: UITableViewCell {
     }
     
     private func initializeView() {
-        backgroundColor = .white
         isUserInteractionEnabled = false
         titleUILabel.apply {
             setTextAppearance(TextAppearances.Body)

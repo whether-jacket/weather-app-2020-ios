@@ -17,14 +17,16 @@ class LetterSpacingsViewController : BaseViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LetterSpacingCellView.IDENTIFIER) as! LetterSpacingCellView
         let position = indexPath.row
-        cell.setLetterSpacingItem(LetterSpacingItems.allCases[position])
+        let cell = tableView.dequeueReusableCell(withIdentifier: LetterSpacingCellView.IDENTIFIER) as! LetterSpacingCellView
+        cell.apply {
+            $0.setLetterSpacingItem(LetterSpacingItems.allCases[position])
+            $0.applyTheme(getCurrentTheme())
+        }
         return cell
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.delegate = self
             $0.dataSource = self

@@ -10,7 +10,7 @@ class ThemeManager {
         if let cachedTheme = currentTheme {
             return cachedTheme
         }
-        currentTheme = getThemeForNightMode(false)
+        currentTheme = getThemeForNightMode(true)
         return currentTheme!
     }
 

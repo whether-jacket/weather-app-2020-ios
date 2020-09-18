@@ -17,14 +17,16 @@ class TextSizesViewController : BaseViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                let position = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: TextSizeCellView.IDENTIFIER) as! TextSizeCellView
-        let position = indexPath.row
-        cell.setTextSizeItem(TextSizeItems.allCases[position])
+        cell.apply {
+            $0.setTextSizeItem(TextSizeItems.allCases[position])
+            $0.applyTheme(getCurrentTheme())
+        }
         return cell
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.delegate = self
             $0.dataSource = self

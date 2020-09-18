@@ -28,7 +28,6 @@ class ColorsViewController : BaseViewController, UITableViewDelegate, UITableVie
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.delegate = self
             $0.dataSource = self

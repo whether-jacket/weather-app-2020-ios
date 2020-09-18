@@ -30,18 +30,15 @@ class ColorCellView: UITableViewCell {
     }
     
     private func initializeView() {
-        backgroundColor = .white
         isUserInteractionEnabled = false
         titleUILabel.apply {
             $0.setTextAppearance(TextAppearances.Body)
             $0.backgroundColor = .black
-            $0.textColor = .white
             addSubview($0)
         }
         valueUILabel.apply {
             $0.setTextAppearance(TextAppearances.Body)
             $0.backgroundColor = .black
-            $0.textColor = .white
             addSubview($0)
         }
         setConstraints()

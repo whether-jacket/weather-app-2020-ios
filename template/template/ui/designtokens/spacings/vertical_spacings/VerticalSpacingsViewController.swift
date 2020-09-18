@@ -13,7 +13,6 @@ class VerticalSpacingsViewController : BaseViewController {
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         scrollView.apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)

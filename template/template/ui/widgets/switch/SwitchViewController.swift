@@ -16,7 +16,6 @@ class SwitchViewController: BaseViewController {
     }
 
     private func initializeViews() {
-        view.backgroundColor = .white
         switchLabel.apply {
             $0.text = Strings.Switch
             $0.setTextAppearance(.Subheadline)

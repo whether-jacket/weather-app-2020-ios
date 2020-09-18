@@ -22,7 +22,6 @@ class LandingPageItemView: UIView {
     }
 
     private func setupView() {
-        backgroundColor = .white
         itemTitle.apply {
             $0.numberOfLines = 0
             $0.setTextAppearance(TextAppearances.Headline)

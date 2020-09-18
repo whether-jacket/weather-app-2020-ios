@@ -17,7 +17,6 @@ class DesignTokenLandingPageViewController: BaseViewController {
     }
 
     private func initializeViews() {
-        self.view.backgroundColor = .white
         spacingsPageItem.apply {
             $0.bind(withTitle: LandingPageItems.Spacings.title, withImage: LandingPageItems.Spacings.image)
             $0.setOnTapListener(target: self, action: #selector(onSpacingsPageItemTapped))

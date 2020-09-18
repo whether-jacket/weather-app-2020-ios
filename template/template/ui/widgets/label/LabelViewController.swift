@@ -15,7 +15,6 @@ class LabelViewController: BaseViewController {
     }
 
     private func initializeViews() {
-        view.backgroundColor = .white
         sampleLabel.apply {
             $0.text = Strings.Label
             $0.setTextAppearance(.Subheadline)

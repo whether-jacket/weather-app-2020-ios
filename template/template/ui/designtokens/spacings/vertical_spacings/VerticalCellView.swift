@@ -34,7 +34,6 @@ class VerticalViewCell: UITableViewCell {
     }
     
     private func initializeView() {
-        backgroundColor = .white
         titleUILabel.apply {
             setTextAppearance(TextAppearances.Body)
             addSubview($0)

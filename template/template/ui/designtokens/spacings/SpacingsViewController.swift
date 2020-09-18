@@ -14,7 +14,6 @@ class SpacingsViewController: BaseViewController {
     }
 
     private func initializeViews() {
-        self.view.backgroundColor = .white
         verticalSpacingPageItem.apply {
             $0.bind(withTitle: Strings.VerticalSpacings, withImage: UIImage(named: Images.VerticalSpacing)!)
             $0.setOnTapListener(target: self, action: #selector(onVerticalSpacingsPageItemTapped))

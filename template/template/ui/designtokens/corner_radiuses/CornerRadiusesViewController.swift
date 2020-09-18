@@ -17,14 +17,16 @@ class CornerRadiusesViewController : BaseViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                let position = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: CornerRadiusCellView.IDENTIFIER) as! CornerRadiusCellView
-        let position = indexPath.row
-        cell.setCornerRadiusItem(CornerRadiusItems.allCases[position])
+        cell.apply {
+            $0.setCornerRadiusItem(CornerRadiusItems.allCases[position])
+            $0.applyTheme(getCurrentTheme())
+        }
         return cell
     }
     
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.delegate = self
             $0.dataSource = self

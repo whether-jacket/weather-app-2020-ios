@@ -44,6 +44,7 @@ class WidgetsViewController: BaseViewController, UITableViewDelegate, UITableVie
             cell = WidgetTableViewCell(style: .subtitle, reuseIdentifier: cellReuseIdentifier)
         }
         cell!.apply {
+            $0.applyTheme(getCurrentTheme())
             $0.update(with: currentWidget)
         }
         return cell!
@@ -51,7 +52,6 @@ class WidgetsViewController: BaseViewController, UITableViewDelegate, UITableVie
 
 
     private func initializeViews() {
-        view.backgroundColor = .white
         tableView.apply {
             $0.register(WidgetTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
             $0.delegate = self

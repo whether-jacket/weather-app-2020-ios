@@ -15,7 +15,6 @@ class ProgressViewController: BaseViewController {
     }
 
     private func initializeViews() {
-        view.backgroundColor = .white
         progressView.apply {
             $0.setProgress(0.50, animated: false)
             view.addSubview($0)
