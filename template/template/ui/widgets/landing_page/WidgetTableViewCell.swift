@@ -33,7 +33,7 @@ final class WidgetTableViewCell: UITableViewCell {
             addSubview($0)
         }
         dividerLine.apply {
-            $0.backgroundColor = .black
+            $0.backgroundColor = ThemeManager.instance.getCurrentTheme().dividerColor
             addSubview($0)
         }
         prepareForReuse()

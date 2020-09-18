@@ -47,7 +47,7 @@ class SettingsViewController: BaseViewController {
             view.addSubview($0)
         }
         debugDividerLine.apply {
-            $0.backgroundColor = .gray
+            $0.backgroundColor = ThemeManager.instance.getCurrentTheme().dividerColor
             view.addSubview($0)
         }
         themingButton.apply {
@@ -97,12 +97,11 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(darkModeLabel)
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
         }
-        debugDividerLine.apply {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.heightAnchor.constraint(equalToConstant: Dimens.HorizontalDividerLineHeight.cgFloat).isActive = true
-            $0.topAnchor.constraint(equalTo: darkModeSwitch.bottomAnchor, constant: VerticalSpacings.l.cgFloat).isActive = true
-            $0.leftAnchor.constraint(equalTo: view.leftAnchor, constant: HorizontalSpacings.m.cgFloat).isActive = true
-            $0.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -HorizontalSpacings.m.cgFloat).isActive = true
+        debugDividerLine.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(darkModeLabel.snp.bottom).offset(VerticalSpacings.l)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(HorizontalSpacings.m)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
+            make.height.equalTo(Dimens.HorizontalDividerLineHeight)
         }
         themingButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(debugDividerLine.snp.bottom).offset(VerticalSpacings.l)
@@ -135,6 +134,8 @@ class SettingsViewController: BaseViewController {
     @objc func onDarkModeSwitched(darkModeSwitch: UISwitch) {
         let isDarkMode = darkModeSwitch.isOn
         log.debug("isDarkMode " + isDarkMode.string)
+        ThemeManager.instance.setTheme(isDarkMode)
+        // TODO: Restart App
     }
     
     @objc func onThemingButtonPressed() {
