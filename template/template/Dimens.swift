@@ -31,4 +31,7 @@ struct Dimens {
     
     // Colors
     static let ColorViewCellHeight = 100
+    
+    // Widgets
+    static let WidgetCellHeight = 80
 }

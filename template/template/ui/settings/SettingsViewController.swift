@@ -143,6 +143,7 @@ class SettingsViewController: BaseViewController {
     
     @objc func onWidgetsButtonPressed() {
         log.debug("widgets pressed")
+        pushViewController(WidgetsViewController())
     }
     
     @objc func onSamplePagesButtonPressed() {
