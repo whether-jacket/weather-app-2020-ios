@@ -145,6 +145,7 @@ enum PresetColors {
     static let teal = UIColor(hex: 0x008080)!
     static let dodger_blue = UIColor(hex: 0x1E90FF)!
     static let blue = UIColor(hex: 0x0000FF)!
+    static let darkBlue = UIColor(hex: 0x00008B)!
     static let medium_blue = UIColor(hex: 0x0000CD)!
     static let dark_blue = UIColor(hex: 0x00008B)!
     static let navy = UIColor(hex: 0x000080)!

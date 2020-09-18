@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "letter_spacing.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

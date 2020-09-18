@@ -151,5 +151,6 @@ class SettingsViewController: BaseViewController {
     
     @objc func onDesignTokensButtonPressed() {
         log.debug("design tokens pressed")
+        pushViewController(DesignTokenLandingPageViewController())
     }
 }
