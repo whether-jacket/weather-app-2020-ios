@@ -20,9 +20,3 @@ class DefaultAlamofireSession: Alamofire.Session {
 let metaWeatherProvider = MoyaProvider<MetaWeather>(
     session: DefaultAlamofireSession.shared
 )
-
-//let Provider = MoyaProvider<MetaWeather>(
-//    endpointClosure: endpointClosure,
-//    manager: DefaultAlamofireManager.sharedManager,
-//    plugins: [NetworkActivityPlugin(networkActivityClosure: networkActivityClosure)]
-//)

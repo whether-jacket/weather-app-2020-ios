@@ -6,6 +6,7 @@ public class Strings {
     public static var Cities: String { get { NSLocalizedString("cities", comment: "") } }
     public static var Settings: String { get { NSLocalizedString("settings", comment: "") } }
     
+    // Settings
     public static var TemperatureInMetric: String { get { NSLocalizedString("temperature_in_metric", comment: "") } }
     public static var SpeedInMetric: String { get { NSLocalizedString("speed_in_metric", comment: "") } }
     public static var DarkMode: String { get { NSLocalizedString("dark_mode", comment: "") } }
