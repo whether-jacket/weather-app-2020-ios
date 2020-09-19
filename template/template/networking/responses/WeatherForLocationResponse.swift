@@ -11,7 +11,8 @@ struct WeatherForLocationResponse: Codable {
     let title: String
     let locationType: String
     let woeid: Int
-    let lattLong, timezone: String
+    let lattLong: String
+    let timezone: String
 
     enum CodingKeys: String, CodingKey {
         case consolidatedWeather = "consolidated_weather"

@@ -3,7 +3,7 @@ import Moya
 
 public enum MetaWeather {
     case getWeatherForWhereOnEarthId(Int)
-//    case getLocationsForCitySearch(String)
+    case getLocationsForCitySearch(String)
 }
 
 extension MetaWeather: TargetType {
@@ -12,20 +12,23 @@ extension MetaWeather: TargetType {
         switch self {
         case .getWeatherForWhereOnEarthId(let whereOnEarthId):
             return "/api/location/\(whereOnEarthId)"
-//        case .getLocationsForCitySearch(let cityName):
-//            return "/api/location/search"
+        case .getLocationsForCitySearch:
+            return "/api/location/search"
         }
     }
     public var method: Moya.Method {
-        return .get
+        switch self {
+        default:
+            return .get
+        }
     }
     public var task: Task {
         switch self {
-//        case .getLocationsForCitySearch:
-//            return .requestParameters(
-//                parameters: ["query"],
-//                encoding: URLEncoding.default
-//            )
+        case .getLocationsForCitySearch(let cityName):
+            return .requestParameters(
+                parameters: ["query": cityName],
+                encoding: URLEncoding.default
+            )
         default:
             return .requestPlain
         }
@@ -42,20 +45,21 @@ extension MetaWeather: TargetType {
         switch self {
         case .getWeatherForWhereOnEarthId:
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-//        case .getLocationsForCitySearch(let cityName):
-//            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
+        default:
+            return "{login: id: foobar}".data(using: String.Encoding.utf8)!
         }
     }
     public var headers: [String: String]? {
-        return nil
+        switch self {
+        default:
+            return nil
+        }
     }
 }
 
 public func url(_ route: TargetType) -> String {
     return route.baseURL.appendingPathComponent(route.path).absoluteString
 }
-
-// MARK: - Response Handlers
 
 extension Moya.Response {
     func mapNSArray() throws -> NSArray {

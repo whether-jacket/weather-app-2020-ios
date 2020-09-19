@@ -72,6 +72,8 @@
 		688A3AFF2515EBA800C5C13B /* WeatherForLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AFE2515EBA800C5C13B /* WeatherForLocationResponse.swift */; };
 		688A3B012515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3B002515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift */; };
 		688A3B032515EEF700C5C13B /* RegionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3B022515EEF700C5C13B /* RegionResponse.swift */; };
+		688A3B052516A76800C5C13B /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3B042516A76700C5C13B /* LocationResponse.swift */; };
+		688A3B082516B02F00C5C13B /* BottomNavTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3B072516B02F00C5C13B /* BottomNavTabs.swift */; };
 		68D0472D250CB6E60074C284 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0472C250CB6E60074C284 /* SettingsViewController.swift */; };
 		68D0472F250CB72A0074C284 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0472E250CB72A0074C284 /* CitiesViewController.swift */; };
 		68D04731250CB7B40074C284 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D04730250CB7B40074C284 /* HomeViewController.swift */; };
@@ -171,6 +173,8 @@
 		688A3AFE2515EBA800C5C13B /* WeatherForLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForLocationResponse.swift; sourceTree = "<group>"; };
 		688A3B002515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsolidatedWeatherResponse.swift; sourceTree = "<group>"; };
 		688A3B022515EEF700C5C13B /* RegionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionResponse.swift; sourceTree = "<group>"; };
+		688A3B042516A76700C5C13B /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
+		688A3B072516B02F00C5C13B /* BottomNavTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavTabs.swift; sourceTree = "<group>"; };
 		68D0472C250CB6E60074C284 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		68D0472E250CB72A0074C284 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		68D04730250CB7B40074C284 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -231,12 +235,12 @@
 		6867AB5E2343F36B00A32328 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				688A3AE2251442C700C5C13B /* widgets */,
-				688A3AA3251435BA00C5C13B /* designtokens */,
+				688A3B062516B00F00C5C13B /* landing */,
 				68D0472B250CB6C60074C284 /* home */,
 				68D0472A250CB6BC0074C284 /* cities */,
 				68D04729250CB66E0074C284 /* settings */,
-				A21C39FC583B4AA93CB62EE3 /* LandingHomeViewController.swift */,
+				688A3AE2251442C700C5C13B /* widgets */,
+				688A3AA3251435BA00C5C13B /* designtokens */,
 				6867AB5F2343F41800A32328 /* RootViewController.swift */,
 				6867AB932343FA4E00A32328 /* HomeNavigationController.swift */,
 			);
@@ -459,8 +463,18 @@
 				688A3AFE2515EBA800C5C13B /* WeatherForLocationResponse.swift */,
 				688A3B002515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift */,
 				688A3B022515EEF700C5C13B /* RegionResponse.swift */,
+				688A3B042516A76700C5C13B /* LocationResponse.swift */,
 			);
 			path = responses;
+			sourceTree = "<group>";
+		};
+		688A3B062516B00F00C5C13B /* landing */ = {
+			isa = PBXGroup;
+			children = (
+				A21C39FC583B4AA93CB62EE3 /* LandingHomeViewController.swift */,
+				688A3B072516B02F00C5C13B /* BottomNavTabs.swift */,
+			);
+			path = landing;
 			sourceTree = "<group>";
 		};
 		68D04729250CB66E0074C284 /* settings */ = {
@@ -794,6 +808,7 @@
 				688A3AC8251435F600C5C13B /* CornerRadiusesViewController.swift in Sources */,
 				6867AB6A2343F5D200A32328 /* Phone.swift in Sources */,
 				6867AB642343F58A00A32328 /* DateTimeFormats.swift in Sources */,
+				688A3B052516A76800C5C13B /* LocationResponse.swift in Sources */,
 				688A3AF72515DDD900C5C13B /* NetworkProvider.swift in Sources */,
 				6867AB7A2343F71B00A32328 /* NSObjectExtensions.swift in Sources */,
 				688A3AF22514444100C5C13B /* ProgressViewController.swift in Sources */,
@@ -831,6 +846,7 @@
 				688A3B032515EEF700C5C13B /* RegionResponse.swift in Sources */,
 				A21C313E43E32DFCD3423A5F /* FileUtil.swift in Sources */,
 				688A3B012515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift in Sources */,
+				688A3B082516B02F00C5C13B /* BottomNavTabs.swift in Sources */,
 				688A3AD1251435F600C5C13B /* VerticalSpacingItems.swift in Sources */,
 				688A3ACE251435F600C5C13B /* ColorsViewController.swift in Sources */,
 				688A3AD6251435F600C5C13B /* HorizontalSpacingsViewController.swift in Sources */,
