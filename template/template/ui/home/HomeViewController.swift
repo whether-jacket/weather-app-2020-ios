@@ -15,6 +15,15 @@ class HomeViewController: BaseViewController {
         button.titleColorForNormal = UIColor.black
         button.setTitle("Hello Home", for: .normal)
         view.addSubview(button)
+        subscribe(MetaWeatherRepo().getWeatherForWhereOnEarthId(whereOnEarthId: 2487956)
+        .subscribeOnIo()
+        .observeOnMain()
+            .do(onNext: { (weatherForLocationResponse) in
+                log.debug("Response: " + weatherForLocationResponse.lattLong)
+            }, onError: { (error) in
+                log.debug(error)
+            })
+        .subscribe())
     }
 
     private func setConstraints() {
