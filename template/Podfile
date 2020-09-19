@@ -4,7 +4,7 @@ use_frameworks!
 target 'template' do
   pod 'DSGradientProgressView', '~> 1.0.1'
   pod 'MaterialComponents', '~> 86.0.0'
-  pod 'Moya/RxSwift', '14.0.0-alpha.1'
+  pod 'Moya/RxSwift', '14.0.0'
   pod 'ResponseDetective', '~> 1.3.0'
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftDate', '~> 6.0.3'
