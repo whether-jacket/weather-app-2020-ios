@@ -1,9 +1,12 @@
+import DSGradientProgressView
 import UIKit
 import SnapKit
 import SwiftDate
 
 class HomeViewController: BaseViewController {
 
+    private let DATE_FORMAT = YearMonthDay.MMM_D_YYYY_SPACE.rawValue
+    private let progressBar = DSGradientProgressView()
     private let cityNameLabel = UILabel()
     private let regionNameLabel = UILabel()
     private let temperatureLabel = UILabel()
@@ -20,12 +23,16 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         initializeViews()
         setConstraints()
-        fetchWeatherForLocation()
+        showMockData()
+//        fetchWeatherForLocation()
 //        fetchCities()
-//        showMockData()
     }
 
     private func initializeViews() {
+        progressBar.apply {
+            view.addSubview($0)
+            self.hideProgressBar()
+        }
         cityNameLabel.apply {
             $0.setTextAppearance(.Headline)
             view.addSubview($0)
@@ -35,7 +42,7 @@ class HomeViewController: BaseViewController {
             view.addSubview($0)
         }
         temperatureLabel.apply {
-            $0.setTextAppearance(.Subheadline)
+            $0.setTextAppearance(.Headline)
             view.addSubview($0)
         }
         temperatureImage.apply {
@@ -73,13 +80,18 @@ class HomeViewController: BaseViewController {
         }
         dateLabel.apply {
             $0.setTextAppearance(.Subheadline)
+            $0.text = DateInRegion().dateAt(.endOfDay).toFormat(DATE_FORMAT)
             view.addSubview($0)
         }
     }
 
     private func setConstraints() {
+        progressBar.snp.updateConstraints { (make) -> Void in
+            make.height.equalTo(Dimens.ProgressBarHeight)
+            make.bottom.left.right.equalTo(view.safeAreaLayoutGuide)
+        }
         cityNameLabel.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(progressBar.snp.top).offset(VerticalSpacings.m)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(VerticalSpacings.m)
             make.centerX.equalTo(view.safeAreaLayoutGuide)
         }
         regionNameLabel.snp.updateConstraints { (make) -> Void in
@@ -120,7 +132,7 @@ class HomeViewController: BaseViewController {
             make.centerX.equalTo(windSpeedTitleLabel)
         }
         dateLabel.snp.updateConstraints { (make) -> Void in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-VerticalSpacings.m)
+            make.bottom.equalTo(progressBar.snp.top).offset(-VerticalSpacings.m)
             make.centerX.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -136,7 +148,6 @@ class HomeViewController: BaseViewController {
             $0.text = "36 C"
         }
 //        temperatureImage.apply {
-            
 //        }
         pressureLabel.apply {
             $0.text = "1,010 hPa"
@@ -148,7 +159,7 @@ class HomeViewController: BaseViewController {
             $0.text = "1.5 m/s"
         }
         dateLabel.apply {
-            $0.text = "July 4th 2020"
+            $0.text = DateInRegion().dateAt(.endOfDay).toFormat(DATE_FORMAT)
         }
     }
     
@@ -190,7 +201,7 @@ class HomeViewController: BaseViewController {
         let humidity = "\(weather.humidity)%"
         let windSpeed = "\(weather.windSpeed.rounded(numberOfDecimalPlaces: 2, rule: .up)) m/s"
         let pressure = "\(weather.airPressure.rounded(numberOfDecimalPlaces: 2, rule: .up)) hPa"
-        let dateTime = response.dateTime.parseDate()?.toFormat(YearMonthDay.MMM_D_YYYY_SPACE.rawValue) ?? ""
+        let dateTime = response.dateTime.parseDate()?.toFormat(DATE_FORMAT) ?? ""
         cityNameLabel.apply {
             $0.text = city
         }
@@ -213,6 +224,20 @@ class HomeViewController: BaseViewController {
         }
         dateLabel.apply {
             $0.text = dateTime
+        }
+    }
+    
+    private func showProgressBar() {
+        progressBar.apply {
+            $0.isHidden = false
+            $0.wait()
+        }
+    }
+
+    private func hideProgressBar() {
+        progressBar.apply {
+            $0.isHidden = true
+            $0.signal()
         }
     }
 }

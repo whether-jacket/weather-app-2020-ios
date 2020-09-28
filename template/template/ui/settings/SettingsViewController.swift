@@ -74,7 +74,7 @@ class SettingsViewController: BaseViewController {
 
     private func setConstraints() {
         temperatureInMetricLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(progressBar.snp.top).offset(VerticalSpacings.m)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(VerticalSpacings.m)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(HorizontalSpacings.m)
         }
         temperatureInMetricSwitch.snp.makeConstraints { (make) -> Void in

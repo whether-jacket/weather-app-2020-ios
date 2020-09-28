@@ -1,4 +1,3 @@
-import DSGradientProgressView
 import RxSwift
 import UIKit
 
@@ -12,7 +11,6 @@ class BaseViewController: UIViewController, NavigationControllerBackButtonDelega
         var indentationString = "__"
     }
     private static var logGlobals = LogGlobals()
-    internal let progressBar = DSGradientProgressView()
     internal var vclLoggingName: String {
         String(describing: type(of: self))
     }
@@ -54,7 +52,6 @@ class BaseViewController: UIViewController, NavigationControllerBackButtonDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         logVCL("viewDidLoad()")
-        initializeViews()
         applyTheme(getCurrentTheme())
     }
 
@@ -122,33 +119,12 @@ class BaseViewController: UIViewController, NavigationControllerBackButtonDelega
         compositeDisposable = CompositeDisposable()
     }
 
-    internal func showProgressBar() {
-        progressBar.isHidden = false
-        progressBar.wait()
-    }
-
-    internal func hideProgressBar() {
-        progressBar.isHidden = true
-        progressBar.signal()
-    }
-
     internal func getCurrentTheme() -> Theme {
         ThemeManager.instance.getCurrentTheme()
     }
 
     private func isSystemInNightMode() -> Bool {
         traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark
-    }
-
-    private func initializeViews() {
-        self.view.addSubview(progressBar)
-        progressBar.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(Dimens.ProgressBarHeight)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
-        }
-        hideProgressBar()
     }
 
     private func logVCL(_ msg: String) {
