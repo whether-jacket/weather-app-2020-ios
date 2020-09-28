@@ -23,8 +23,8 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         initializeViews()
         setConstraints()
-        showMockData()
-//        fetchWeatherForLocation()
+//        showMockData()
+        fetchWeatherForLocation()
 //        fetchCities()
     }
 
@@ -35,52 +35,62 @@ class HomeViewController: BaseViewController {
         }
         cityNameLabel.apply {
             $0.setTextAppearance(.Headline)
+            $0.isHidden = true
             view.addSubview($0)
         }
         regionNameLabel.apply {
             $0.setTextAppearance(.Subheadline)
+            $0.isHidden = true
             view.addSubview($0)
         }
         temperatureLabel.apply {
             $0.setTextAppearance(.Headline)
+            $0.isHidden = true
             view.addSubview($0)
         }
         temperatureImage.apply {
+            $0.isHidden = true
             view.addSubview($0)
         }
         pressureTitleLabel.apply {
             $0.setTextAppearance(.Body)
             $0.text = Strings.Pressure
             $0.setUnderlined()
+            $0.isHidden = true
             view.addSubview($0)
         }
         pressureLabel.apply {
             $0.setTextAppearance(.Caption1)
+            $0.isHidden = true
             view.addSubview($0)
         }
         humidityTitleLabel.apply {
             $0.setTextAppearance(.Body)
             $0.text = Strings.Humidity
             $0.setUnderlined()
+            $0.isHidden = true
             view.addSubview($0)
         }
         humidityLabel.apply {
             $0.setTextAppearance(.Caption1)
+            $0.isHidden = true
             view.addSubview($0)
         }
         windSpeedTitleLabel.apply {
             $0.setTextAppearance(.Body)
             $0.text = Strings.WindSpeed
             $0.setUnderlined()
+            $0.isHidden = true
             view.addSubview($0)
         }
         windSpeedLabel.apply {
             $0.setTextAppearance(.Caption1)
+            $0.isHidden = true
             view.addSubview($0)
         }
         dateLabel.apply {
             $0.setTextAppearance(.Subheadline)
-            $0.text = DateInRegion().dateAt(.endOfDay).toFormat(DATE_FORMAT)
+            $0.isHidden = true
             view.addSubview($0)
         }
     }
@@ -204,27 +214,45 @@ class HomeViewController: BaseViewController {
         let dateTime = response.dateTime.parseDate()?.toFormat(DATE_FORMAT) ?? ""
         cityNameLabel.apply {
             $0.text = city
+            $0.isHidden = false
         }
         regionNameLabel.apply {
             $0.text = greaterRegion
+            $0.isHidden = false
         }
         temperatureLabel.apply {
             $0.text = currentTemperature
+            $0.isHidden = false
         }
-//        temperatureImage.apply {
-//        }
+        temperatureImage.apply {
+            $0.isHidden = false
+        }
         pressureLabel.apply {
             $0.text = pressure
+            $0.isHidden = false
+        }
+        pressureTitleLabel.apply {
+            $0.isHidden = false
         }
         humidityLabel.apply {
             $0.text = humidity
+            $0.isHidden = false
+        }
+        humidityTitleLabel.apply {
+            $0.isHidden = false
         }
         windSpeedLabel.apply {
             $0.text = windSpeed
+            $0.isHidden = false
+        }
+        windSpeedTitleLabel.apply {
+            $0.isHidden = false
         }
         dateLabel.apply {
             $0.text = dateTime
+            $0.isHidden = false
         }
+        updateViewConstraints()
     }
     
     private func showProgressBar() {
