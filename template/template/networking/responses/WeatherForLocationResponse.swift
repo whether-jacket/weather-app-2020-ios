@@ -2,13 +2,13 @@ import Foundation
 
 struct WeatherForLocationResponse: Codable {
     let consolidatedWeather: [ConsolidatedWeatherResponse]
-    let time: String
+    let dateTime: String
     let sunrise: String
     let sunset: String
     let timezoneName: String
     let parent: RegionResponse
     let sources: [Source]
-    let title: String
+    let cityTitle: String
     let locationType: String
     let woeid: Int
     let lattLong: String
@@ -16,11 +16,12 @@ struct WeatherForLocationResponse: Codable {
 
     enum CodingKeys: String, CodingKey {
         case consolidatedWeather = "consolidated_weather"
-        case time
+        case dateTime = "time"
         case sunrise = "sun_rise"
         case sunset = "sun_set"
         case timezoneName = "timezone_name"
-        case parent, sources, title
+        case parent, sources
+        case cityTitle = "title"
         case locationType = "location_type"
         case woeid
         case lattLong = "latt_long"
