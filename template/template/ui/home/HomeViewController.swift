@@ -23,8 +23,8 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         initializeViews()
         setConstraints()
-//        showMockData()
-        fetchWeatherForLocation()
+        showMockData()
+//        fetchWeatherForLocation()
 //        fetchCities()
     }
 
@@ -150,26 +150,44 @@ class HomeViewController: BaseViewController {
     private func showMockData() {
         cityNameLabel.apply {
             $0.text = "San Francisco"
+            $0.isHidden = false
         }
         regionNameLabel.apply {
             $0.text = "CA"
+            $0.isHidden = false
         }
         temperatureLabel.apply {
+            $0.isHidden = false
             $0.text = "36 C"
+            $0.isHidden = false
         }
-//        temperatureImage.apply {
-//        }
+        temperatureImage.apply {
+            $0.isHidden = false
+        }
+        pressureTitleLabel.apply {
+            $0.isHidden = false
+        }
         pressureLabel.apply {
             $0.text = "1,010 hPa"
+            $0.isHidden = false
+        }
+        humidityTitleLabel.apply {
+            $0.isHidden = false
         }
         humidityLabel.apply {
             $0.text = "26%"
+            $0.isHidden = false
+        }
+        windSpeedTitleLabel.apply {
+            $0.isHidden = false
         }
         windSpeedLabel.apply {
             $0.text = "1.5 m/s"
+            $0.isHidden = false
         }
         dateLabel.apply {
             $0.text = DateInRegion().dateAt(.endOfDay).toFormat(DATE_FORMAT)
+            $0.isHidden = false
         }
     }
     
