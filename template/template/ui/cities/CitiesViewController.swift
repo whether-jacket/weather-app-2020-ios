@@ -19,9 +19,9 @@ class CitiesViewController: BaseViewController {
 
     private func setConstraints() {
         button.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(progressBar.snp.top).offset(VerticalSpacings.m)
-            make.left.equalTo(view.safeAreaLayoutGuide.snp.left).offset(HorizontalSpacings.m)
-            make.right.equalTo(view.safeAreaLayoutGuide.snp.right).offset(-HorizontalSpacings.m)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(VerticalSpacings.m)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(HorizontalSpacings.m)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
         }
     }
 }
