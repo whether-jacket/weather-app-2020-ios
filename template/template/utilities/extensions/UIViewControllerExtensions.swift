@@ -10,6 +10,10 @@ extension UIViewController {
     internal func showNavigationBar(_ isShowing: Bool) {
         navigationController?.setNavigationBarHidden(!isShowing, animated: true)
     }
+    
+    internal func showToolbar(_ isShowing: Bool) {
+        navigationController?.setToolbarHidden(!isShowing, animated: true)
+    }
 
     internal func addChild(_ child: UIViewController, in containerView: UIView) {
         guard containerView.isDescendant(of: view) else {
