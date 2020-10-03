@@ -18,7 +18,7 @@ class HomeViewController: BaseViewController {
     private let windSpeedTitleLabel = UILabel()
     private let windSpeedLabel = UILabel()
     private let dateLabel = UILabel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeViews()

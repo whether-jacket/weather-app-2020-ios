@@ -4,6 +4,17 @@ import UIKit
 enum Theme {
     case Tokyo, Illini, SeaFoam
 
+    var isLight: Bool {
+        switch self {
+        case .Tokyo:
+            return true
+        case .Illini:
+            return false
+        case .SeaFoam:
+            return true
+        }
+    }
+    
     var primaryColor: UIColor {
         switch self {
         case .Tokyo:
