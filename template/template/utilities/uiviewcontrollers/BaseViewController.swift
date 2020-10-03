@@ -122,6 +122,14 @@ class BaseViewController: UIViewController, NavigationControllerBackButtonDelega
     internal func getCurrentTheme() -> Theme {
         ThemeManager.instance.getCurrentTheme()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return getCurrentTheme().isLight ? .darkContent : .lightContent
+        } else {
+            return getCurrentTheme().isLight ? .default : .lightContent
+        }
+    }
 
     private func isSystemInNightMode() -> Bool {
         traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark

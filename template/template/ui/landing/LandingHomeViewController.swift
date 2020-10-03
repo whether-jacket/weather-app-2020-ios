@@ -2,9 +2,19 @@ import UIKit
 
 class LandingHomeViewController: UITabBarController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showNavigationBar(false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeViews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showNavigationBar(true)
     }
 
     private func initializeViews() {
