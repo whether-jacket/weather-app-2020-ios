@@ -13,6 +13,9 @@ class CitiesViewController : UITableViewController {
         super.viewDidLoad()
         tableView.apply {
             $0.isEditing = true
+            $0.allowsMultipleSelection = false
+            $0.allowsSelection = false
+            $0.allowsMultipleSelectionDuringEditing = false
             $0.register(
                 CityTableViewCell.self,
                 forCellReuseIdentifier: CityTableViewCell.IDENTIFIER
@@ -33,38 +36,38 @@ class CitiesViewController : UITableViewController {
         if cell == nil || cell?.detailTextLabel == nil {
             cell = CityTableViewCell(style: .subtitle, reuseIdentifier: CityTableViewCell.IDENTIFIER)
         }
-        let imageView = cell!.subviews.first(where: { $0.description.contains("Reorder") })?.subviews.first(where: { $0 is UIImageView }) as? UIImageView
-        imageView?.tintColor = ThemeManager.instance.getCurrentTheme().dividerColor
         cell!.apply {
             $0.applyTheme(ThemeManager.instance.getCurrentTheme())
-            
             $0.update(with: currentCity)
         }
         return cell!
     }
+}
 
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.cities[sourceIndexPath.row]
-        cities.remove(at: sourceIndexPath.row)
-        cities.insert(movedObject, at: destinationIndexPath.row)
-        debugPrint("\(sourceIndexPath.row) => \(destinationIndexPath.row)")
-        // To check for correctness enable: self.tableView.reloadData()
+// MARK: Swiping
+extension CitiesViewController {
+     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(actions: [
+            makeDeleteContextualAction(forRowAt: indexPath)
+        ])
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            cities.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+     private func makeDeleteContextualAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        return UIContextualAction(style: .destructive, title: Strings.Delete) { (action, swipeButtonView, completion) in
+            log.verbose("we are swipe to deleting: \(indexPath.row)")
+            self.cities.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            completion(true)
+         }
+     }
+}
+
+// MARK: Reordering
+extension CitiesViewController {
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        log.verbose("we are moving \(sourceIndexPath.row) => \(destinationIndexPath.row)")
+        let movedObject = self.cities[sourceIndexPath.row]
+        self.cities.remove(at: sourceIndexPath.row)
+        self.cities.insert(movedObject, at: destinationIndexPath.row)
     }
 }

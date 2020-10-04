@@ -43,12 +43,12 @@ final class CityTableViewCell: UITableViewCell {
     private func setConstraints() {
         cityNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self).offset(VerticalSpacings.m)
-            make.left.equalTo(self).offset(HorizontalSpacings.m)
+            make.left.equalTo(self).offset(HorizontalSpacings.xl)
             make.right.equalTo(self).offset(-HorizontalSpacings.m)
         }
         regionNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.cityNameLabel.snp.bottom).offset(VerticalSpacings.s)
-            make.left.equalTo(self).offset(HorizontalSpacings.m)
+            make.left.equalTo(self).offset(HorizontalSpacings.xl)
             make.right.equalTo(self).offset(-HorizontalSpacings.m)
         }
         dividerLine.snp.makeConstraints { (make) -> Void in

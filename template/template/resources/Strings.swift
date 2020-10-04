@@ -11,6 +11,8 @@ public class Strings {
     public static var Humidity: String { get { "Humidity" } }
     public static var WindSpeed: String { get { "Wind Speed" } }
     
+    // Cities
+    public static var Delete: String { get { "Delete" } }
     
     // Settings
     public static var TemperatureInMetric: String { get { NSLocalizedString("temperature_in_metric", comment: "") } }
