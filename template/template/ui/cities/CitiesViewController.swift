@@ -8,7 +8,8 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
         CityTableItem(id: 1, cityName: "San Diego", regionName: "CA"),
         CityTableItem(id: 1, cityName: "Tempe", regionName: "AZ")
     ]
-    private let tableView = UITableView()
+    private let citiesTableView = UITableView()
+    private let addCityButton = UIButton(type: .contactAdd)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +18,10 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
     }
 
     private func initializeViews() {
-        tableView.apply {
+        citiesTableView.apply {
+            $0.delegate = self
+            $0.dataSource = self
             $0.isEditing = true
-            $0.allowsMultipleSelection = false
-            $0.allowsSelection = false
-            $0.allowsMultipleSelectionDuringEditing = false
             $0.register(
                 CityTableViewCell.self,
                 forCellReuseIdentifier: CityTableViewCell.IDENTIFIER
@@ -29,15 +29,22 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
             $0.separatorStyle = .none
             $0.tableFooterView = UIView()
             $0.rowHeight = Dimens.WidgetCellHeight.cgFloat
-            $0.delegate = self
-            $0.dataSource = self
+            view.addSubview($0)
+        }
+        addCityButton.apply {
+            $0.setOnTapListener(target: self, action: #selector(onCityButtonTapped))
             view.addSubview($0)
         }
     }
 
     private func setConstraints() {
-        tableView.snp.makeConstraints { (make) -> Void in
-            make.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+        addCityButton.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-VerticalSpacings.m)
+        }
+        citiesTableView.snp.makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(addCityButton.snp.top)
         }
     }
 
@@ -57,6 +64,10 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
         }
         return cell!
     }
+    
+    @objc private func onCityButtonTapped() {
+        log.verbose("we tapped on add city button")
+    }
 }
 
 // MARK: Swiping
@@ -71,7 +82,7 @@ extension CitiesViewController {
         return UIContextualAction(style: .destructive, title: Strings.Delete) { (action, swipeButtonView, completion) in
             log.verbose("we are swipe to deleting: \(indexPath.row)")
             self.cities.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.citiesTableView.deleteRows(at: [indexPath], with: .fade)
             completion(true)
          }
      }
