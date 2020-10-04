@@ -1,16 +1,22 @@
 import UIKit
 import SnapKit
 
-class CitiesViewController : UITableViewController {
+class CitiesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var cities = [
+    private var cities = [
         CityTableItem(id: 1, cityName: "San Francisco", regionName: "CA"),
         CityTableItem(id: 1, cityName: "San Diego", regionName: "CA"),
         CityTableItem(id: 1, cityName: "Tempe", regionName: "AZ")
     ]
-
+    private let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeViews()
+        setConstraints()
+    }
+
+    private func initializeViews() {
         tableView.apply {
             $0.isEditing = true
             $0.allowsMultipleSelection = false
@@ -23,14 +29,23 @@ class CitiesViewController : UITableViewController {
             $0.separatorStyle = .none
             $0.tableFooterView = UIView()
             $0.rowHeight = Dimens.WidgetCellHeight.cgFloat
+            $0.delegate = self
+            $0.dataSource = self
+            view.addSubview($0)
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    private func setConstraints() {
+        tableView.snp.makeConstraints { (make) -> Void in
+            make.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentCity = self.cities[indexPath.row]
         var cell: CityTableViewCell? = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.IDENTIFIER, for: indexPath) as? CityTableViewCell
         if cell == nil || cell?.detailTextLabel == nil {
@@ -46,7 +61,7 @@ class CitiesViewController : UITableViewController {
 
 // MARK: Swiping
 extension CitiesViewController {
-     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(actions: [
             makeDeleteContextualAction(forRowAt: indexPath)
         ])
@@ -64,7 +79,7 @@ extension CitiesViewController {
 
 // MARK: Reordering
 extension CitiesViewController {
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         log.verbose("we are moving \(sourceIndexPath.row) => \(destinationIndexPath.row)")
         let movedObject = self.cities[sourceIndexPath.row]
         self.cities.remove(at: sourceIndexPath.row)
