@@ -4,6 +4,7 @@ import SwifterSwift
 final class CityTableViewCell: UITableViewCell {
 
     public static let IDENTIFIER = "CityTableViewCell"
+    private static let REORDER_ICON_IDENTIFIER = "Reorder"
     public var cityTableItem: CityTableItem?
     private let cityNameLabel = UILabel(textAppearance: .Subheadline)
     private let regionNameLabel = UILabel(textAppearance: .Subheadline)
@@ -23,6 +24,21 @@ final class CityTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         cityNameLabel.text = nil
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if ThemeManager.instance.getCurrentTheme().isLight {
+            return
+        }
+        if !editing {
+            return
+        }
+        for view in subviews where view.description.contains(CityTableViewCell.REORDER_ICON_IDENTIFIER) {
+            for case let subview as UIImageView in view.subviews {
+                subview.image = UIImage(named: Images.HamburgerLight)
+            }
+        }
     }
 
     private func initializeViews() {

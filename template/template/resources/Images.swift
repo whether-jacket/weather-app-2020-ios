@@ -8,4 +8,5 @@ public struct Images {
     public static let CornerRadius = "corner_radius"
     public static let TextSize = "text_size"
     public static let Colors = "colors"
+    public static let HamburgerLight = "hamburger_light"
 }
