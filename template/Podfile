@@ -5,6 +5,7 @@ target 'template' do
   pod 'DSGradientProgressView', '~> 1.0.1'
   pod 'MaterialComponents', '~> 86.0.0'
   pod 'Moya/RxSwift', '14.0.0'
+  pod 'OverlayContainer', '~> 3.5.1'
   pod 'ResponseDetective', '~> 1.3.0'
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftDate', '~> 6.0.3'
