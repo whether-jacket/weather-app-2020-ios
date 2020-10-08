@@ -36,6 +36,7 @@
 		6867AB962343FABD00A32328 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6867AB952343FABD00A32328 /* ThemeManager.swift */; };
 		6884098825230CCF00FFE1BF /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884098725230CCF00FFE1BF /* CityTableViewCell.swift */; };
 		6884098D25230D2400FFE1BF /* CityTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884098C25230D2400FFE1BF /* CityTableItem.swift */; };
+		688409CA252A9B9700FFE1BF /* CitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */; };
 		688A3AC6251435F600C5C13B /* CornerRadiusCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA5251435F500C5C13B /* CornerRadiusCellView.swift */; };
 		688A3AC7251435F600C5C13B /* CornerRadiusItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA6251435F500C5C13B /* CornerRadiusItems.swift */; };
 		688A3AC8251435F600C5C13B /* CornerRadiusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA7251435F500C5C13B /* CornerRadiusesViewController.swift */; };
@@ -139,6 +140,7 @@
 		6867AB952343FABD00A32328 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		6884098725230CCF00FFE1BF /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		6884098C25230D2400FFE1BF /* CityTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableItem.swift; sourceTree = "<group>"; };
+		688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewController.swift; sourceTree = "<group>"; };
 		688A3AA5251435F500C5C13B /* CornerRadiusCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusCellView.swift; sourceTree = "<group>"; };
 		688A3AA6251435F500C5C13B /* CornerRadiusItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusItems.swift; sourceTree = "<group>"; };
 		688A3AA7251435F500C5C13B /* CornerRadiusesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusesViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		6867AB5E2343F36B00A32328 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				688409C8252A9B4C00FFE1BF /* city_search */,
 				688A3B062516B00F00C5C13B /* landing */,
 				68D0472B250CB6C60074C284 /* home */,
 				68D0472A250CB6BC0074C284 /* cities */,
@@ -296,6 +299,14 @@
 				6867AB952343FABD00A32328 /* ThemeManager.swift */,
 			);
 			path = design;
+			sourceTree = "<group>";
+		};
+		688409C8252A9B4C00FFE1BF /* city_search */ = {
+			isa = PBXGroup;
+			children = (
+				688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */,
+			);
+			path = city_search;
 			sourceTree = "<group>";
 		};
 		688A3AA3251435BA00C5C13B /* designtokens */ = {
@@ -801,6 +812,7 @@
 				688A3AC6251435F600C5C13B /* CornerRadiusCellView.swift in Sources */,
 				6867AB762343F6E600A32328 /* CollectionExtensions.swift in Sources */,
 				688A3AD0251435F600C5C13B /* VerticalSpacingsViewController.swift in Sources */,
+				688409CA252A9B9700FFE1BF /* CitySearchViewController.swift in Sources */,
 				688A3AD3251435F600C5C13B /* SpacingsViewController.swift in Sources */,
 				688A3ACA251435F600C5C13B /* TextSizesViewController.swift in Sources */,
 				6867AB942343FA4E00A32328 /* HomeNavigationController.swift in Sources */,

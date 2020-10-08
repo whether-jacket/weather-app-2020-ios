@@ -1,5 +1,5 @@
-import UIKit
 import SnapKit
+import UIKit
 
 class CitiesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -10,7 +10,8 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
     ]
     private let citiesTableView = UITableView()
     private let addCityButton = UIButton(type: .contactAdd)
-    
+    private let citySearchViewController = CitySearchViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeViews()
@@ -38,13 +39,13 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
     }
 
     private func setConstraints() {
-        addCityButton.snp.makeConstraints { (make) -> Void in
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-VerticalSpacings.m)
-        }
         citiesTableView.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(addCityButton.snp.top)
+        }
+        addCityButton.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-VerticalSpacings.m)
         }
     }
 
@@ -64,9 +65,12 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
         }
         return cell!
     }
-    
+
     @objc private func onCityButtonTapped() {
         log.verbose("we tapped on add city button")
+        let citySearchViewController = CitySearchViewController()
+        citySearchViewController.modalPresentationStyle = .pageSheet
+        present(citySearchViewController, animated: true, completion: nil)
     }
 }
 
