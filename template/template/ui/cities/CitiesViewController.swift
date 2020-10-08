@@ -1,4 +1,3 @@
-import OverlayContainer
 import SnapKit
 import UIKit
 
@@ -11,11 +10,7 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
     ]
     private let citiesTableView = UITableView()
     private let addCityButton = UIButton(type: .contactAdd)
-    private var overlayContainerView = PassThroughView()
-    
     private let citySearchViewController = CitySearchViewController()
-    private let overlayController = OverlayContainerViewController()
-    var showsOverlay = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +30,12 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
             $0.separatorStyle = .none
             $0.tableFooterView = UIView()
             $0.rowHeight = Dimens.WidgetCellHeight.cgFloat
-            view.insertSubview($0, at: 0)
+            view.addSubview($0)
         }
         addCityButton.apply {
             $0.setOnTapListener(target: self, action: #selector(onCityButtonTapped))
-            view.insertSubview($0, at: 0)
+            view.addSubview($0)
         }
-        overlayContainerView.apply {
-            view.insertSubview($0, at: 1)
-        }
-        overlayController.delegate = self
-        setupBottomSheet()
     }
 
     private func setConstraints() {
@@ -57,15 +47,6 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-HorizontalSpacings.m)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-VerticalSpacings.m)
         }
-        overlayContainerView.snp.updateConstraints { (make) -> Void in
-            make.top.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func setupBottomSheet() {
-        removeChild(overlayController)
-        overlayController.viewControllers = [citySearchViewController]
-        addChild(overlayController, in: overlayContainerView)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,10 +68,9 @@ class CitiesViewController: BaseViewController, UITableViewDelegate, UITableView
 
     @objc private func onCityButtonTapped() {
         log.verbose("we tapped on add city button")
-//        setupBottomSheet()
-        showsOverlay.toggle()
-        let targetNotch: OverlayNotch = showsOverlay ? .maximum : .hidden
-        overlayController.moveOverlay(toNotchAt: targetNotch.rawValue, animated: true)
+        let citySearchViewController = CitySearchViewController()
+        citySearchViewController.modalPresentationStyle = .pageSheet
+        present(citySearchViewController, animated: true, completion: nil)
     }
 }
 
@@ -120,37 +100,4 @@ extension CitiesViewController {
         self.cities.remove(at: sourceIndexPath.row)
         self.cities.insert(movedObject, at: destinationIndexPath.row)
     }
-}
-
-// MARK: OverlayContainer
-extension CitiesViewController: OverlayContainerViewControllerDelegate {
-
-    func notchHeight(for notch: OverlayNotch, availableSpace: CGFloat) -> CGFloat {
-        return notch.getHeight(withHeight: availableSpace)
-    }
-    
-    func numberOfNotches(in containerViewController: OverlayContainerViewController) -> Int {
-        return OverlayNotch.allCases.count
-    }
-
-    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
-                                        heightForNotchAt index: Int,
-                                        availableSpace: CGFloat) -> CGFloat {
-        let notch = OverlayNotch.allCases[index]
-        return notchHeight(for: notch, availableSpace: availableSpace)
-    }
-
-    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
-                                        scrollViewDrivingOverlay overlayViewController:
-                                            UIViewController) -> UIScrollView? {
-        return (overlayViewController as? CitySearchViewController)?.citiesTableView
-    }
-
-    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController,
-                                        shouldStartDraggingOverlay overlayViewController: UIViewController,
-                                        at point: CGPoint,
-                                        in coordinateSpace: UICoordinateSpace) -> Bool {
-        return true
-    }
-
 }

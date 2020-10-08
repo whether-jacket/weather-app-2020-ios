@@ -1,6 +1,5 @@
 import DSGradientProgressView
 import Foundation
-import OverlayContainer
 import SnapKit
 import UIKit
 
