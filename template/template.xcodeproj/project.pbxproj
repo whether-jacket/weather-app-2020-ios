@@ -37,7 +37,6 @@
 		6884098825230CCF00FFE1BF /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884098725230CCF00FFE1BF /* CityTableViewCell.swift */; };
 		6884098D25230D2400FFE1BF /* CityTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884098C25230D2400FFE1BF /* CityTableItem.swift */; };
 		688409CA252A9B9700FFE1BF /* CitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */; };
-		688409D2252AA28D00FFE1BF /* OverlayNotch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688409D1252AA28D00FFE1BF /* OverlayNotch.swift */; };
 		688A3AC6251435F600C5C13B /* CornerRadiusCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA5251435F500C5C13B /* CornerRadiusCellView.swift */; };
 		688A3AC7251435F600C5C13B /* CornerRadiusItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA6251435F500C5C13B /* CornerRadiusItems.swift */; };
 		688A3AC8251435F600C5C13B /* CornerRadiusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688A3AA7251435F500C5C13B /* CornerRadiusesViewController.swift */; };
@@ -142,7 +141,6 @@
 		6884098725230CCF00FFE1BF /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		6884098C25230D2400FFE1BF /* CityTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableItem.swift; sourceTree = "<group>"; };
 		688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewController.swift; sourceTree = "<group>"; };
-		688409D1252AA28D00FFE1BF /* OverlayNotch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayNotch.swift; sourceTree = "<group>"; };
 		688A3AA5251435F500C5C13B /* CornerRadiusCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusCellView.swift; sourceTree = "<group>"; };
 		688A3AA6251435F500C5C13B /* CornerRadiusItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusItems.swift; sourceTree = "<group>"; };
 		688A3AA7251435F500C5C13B /* CornerRadiusesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusesViewController.swift; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */,
-				688409D1252AA28D00FFE1BF /* OverlayNotch.swift */,
 			);
 			path = city_search;
 			sourceTree = "<group>";
@@ -845,7 +842,6 @@
 				688A3ADE251435F600C5C13B /* LetterSpacingsViewController.swift in Sources */,
 				68D0472F250CB72A0074C284 /* CitiesViewController.swift in Sources */,
 				6867AB822343F7F100A32328 /* UILabelExtensions.swift in Sources */,
-				688409D2252AA28D00FFE1BF /* OverlayNotch.swift in Sources */,
 				688A3AD4251435F600C5C13B /* HorizontalCellView.swift in Sources */,
 				6867AB622343F56E00A32328 /* App.swift in Sources */,
 				688A3ACC251435F600C5C13B /* ColorCellView.swift in Sources */,
