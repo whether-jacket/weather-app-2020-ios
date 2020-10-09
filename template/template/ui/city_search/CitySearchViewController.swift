@@ -32,8 +32,8 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
             $0.delegate = self
             $0.dataSource = self
             $0.register(
-                CityTableViewCell.self,
-                forCellReuseIdentifier: CityTableViewCell.IDENTIFIER
+                CitySearchTableViewCell.self,
+                forCellReuseIdentifier: CitySearchTableViewCell.IDENTIFIER
             )
             $0.separatorStyle = .none
             $0.tableFooterView = UIView()
@@ -62,9 +62,9 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentCity = self.cities[indexPath.row]
-        var cell: CityTableViewCell? = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.IDENTIFIER, for: indexPath) as? CityTableViewCell
+        var cell: CitySearchTableViewCell? = tableView.dequeueReusableCell(withIdentifier: CitySearchTableViewCell.IDENTIFIER, for: indexPath) as? CitySearchTableViewCell
         if cell == nil || cell?.detailTextLabel == nil {
-            cell = CityTableViewCell(style: .subtitle, reuseIdentifier: CityTableViewCell.IDENTIFIER)
+            cell = CitySearchTableViewCell(style: .subtitle, reuseIdentifier: CitySearchTableViewCell.IDENTIFIER)
         }
         cell!.apply {
             $0.applyTheme(ThemeManager.instance.getCurrentTheme())
