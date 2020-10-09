@@ -51,6 +51,8 @@ extension Theme {
             (view as! UIButton).applyTheme(self)
         case is UILabel:
             (view as! UILabel).applyTheme(self)
+        case is UISearchBar:
+            (view as! UISearchBar).applyTheme(self)
         case is UISegmentedControl:
             (view as! UISegmentedControl).applyTheme(self)
         case is UITableView:
@@ -105,6 +107,13 @@ extension UISegmentedControl {
         if #available(iOS 13.0, *) {
             selectedSegmentTintColor = theme.accentColor
         }
+    }
+}
+
+extension UISearchBar {
+    func applyTheme(_ theme: Theme) {
+        tintColor = theme.accentColor
+        barStyle = theme.isLight ? .default : .black
     }
 }
 

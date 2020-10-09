@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B6AF5C3D9811DB21B073271 /* Pods_template.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9D95643E79A197A74A963E /* Pods_template.framework */; };
+		6805ED1C2530FE09001DD49E /* CitySearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6805ED1B2530FE09001DD49E /* CitySearchTableViewCell.swift */; };
 		6867AB602343F41800A32328 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6867AB5F2343F41800A32328 /* RootViewController.swift */; };
 		6867AB622343F56E00A32328 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6867AB612343F56E00A32328 /* App.swift */; };
 		6867AB642343F58A00A32328 /* DateTimeFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6867AB632343F58A00A32328 /* DateTimeFormats.swift */; };
@@ -112,6 +113,7 @@
 /* Begin PBXFileReference section */
 		1021786F846F70AEB0DC0EB6 /* Pods-template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-template.release.xcconfig"; path = "Target Support Files/Pods-template/Pods-template.release.xcconfig"; sourceTree = "<group>"; };
 		3B9D95643E79A197A74A963E /* Pods_template.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_template.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6805ED1B2530FE09001DD49E /* CitySearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchTableViewCell.swift; sourceTree = "<group>"; };
 		6867AB5F2343F41800A32328 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		6867AB612343F56E00A32328 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		6867AB632343F58A00A32328 /* DateTimeFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormats.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				688409C9252A9B9700FFE1BF /* CitySearchViewController.swift */,
+				6805ED1B2530FE09001DD49E /* CitySearchTableViewCell.swift */,
 			);
 			path = city_search;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				A21C313E43E32DFCD3423A5F /* FileUtil.swift in Sources */,
 				688A3B012515EE7D00C5C13B /* ConsolidatedWeatherResponse.swift in Sources */,
 				688A3B082516B02F00C5C13B /* BottomNavTabs.swift in Sources */,
+				6805ED1C2530FE09001DD49E /* CitySearchTableViewCell.swift in Sources */,
 				688A3AD1251435F600C5C13B /* VerticalSpacingItems.swift in Sources */,
 				688A3ACE251435F600C5C13B /* ColorsViewController.swift in Sources */,
 				688A3AD6251435F600C5C13B /* HorizontalSpacingsViewController.swift in Sources */,

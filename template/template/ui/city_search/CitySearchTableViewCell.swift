@@ -1,11 +1,11 @@
+import Foundation
 import UIKit
 import SwifterSwift
 
-final class CityTableViewCell: UITableViewCell {
+final class CitySearchTableViewCell: UITableViewCell {
 
-    public static let IDENTIFIER = "CityTableViewCell"
-    private static let REORDER_ICON_IDENTIFIER = "Reorder"
-    public var cityTableItem: CityTableItem?
+    public static let IDENTIFIER = "CitySearchTableViewCell"
+    private var cityTableItem: CityTableItem?
     private let cityNameLabel = UILabel(textAppearance: .Subheadline)
     private let regionNameLabel = UILabel(textAppearance: .Subheadline)
     private let dividerLine = UIView()
@@ -26,24 +26,8 @@ final class CityTableViewCell: UITableViewCell {
         cityNameLabel.text = nil
         regionNameLabel.text = nil
     }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        if ThemeManager.instance.getCurrentTheme().isLight {
-            return
-        }
-        if !editing {
-            return
-        }
-        for view in subviews where view.description.contains(CityTableViewCell.REORDER_ICON_IDENTIFIER) {
-            for case let subview as UIImageView in view.subviews {
-                subview.image = UIImage(named: Images.HamburgerLight)
-            }
-        }
-    }
 
     private func initializeViews() {
-        selectionStyle = .none
         cityNameLabel.apply {
             addSubview($0)
         }
@@ -60,12 +44,12 @@ final class CityTableViewCell: UITableViewCell {
     private func setConstraints() {
         cityNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self).offset(VerticalSpacings.m)
-            make.left.equalTo(self).offset(HorizontalSpacings.xl)
+            make.left.equalTo(self).offset(HorizontalSpacings.m)
             make.right.equalTo(self).offset(-HorizontalSpacings.m)
         }
         regionNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.cityNameLabel.snp.bottom).offset(VerticalSpacings.s)
-            make.left.equalTo(self).offset(HorizontalSpacings.xl)
+            make.left.equalTo(self).offset(HorizontalSpacings.m)
             make.right.equalTo(self).offset(-HorizontalSpacings.m)
         }
         dividerLine.snp.makeConstraints { (make) -> Void in
@@ -75,18 +59,11 @@ final class CityTableViewCell: UITableViewCell {
     }
 }
 
-extension CityTableViewCell: UpdatableCellView {
+extension CitySearchTableViewCell: UpdatableCellView {
 
     func update(with item: CityTableItem) {
         cityTableItem = item
         cityNameLabel.text = item.cityName
         regionNameLabel.text = item.regionName
     }
-}
-
-protocol UpdatableCellView {
-
-    associatedtype ModelDataType
-
-    func update(with item: ModelDataType)
 }
