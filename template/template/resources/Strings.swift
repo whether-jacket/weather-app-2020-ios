@@ -14,6 +14,9 @@ public class Strings {
     // Cities
     public static var Delete: String { get { "Delete" } }
     
+    // City Search
+    public static var SearchForCity: String { get { "Search for city…" } }
+    
     // Settings
     public static var TemperatureInMetric: String { get { NSLocalizedString("temperature_in_metric", comment: "") } }
     public static var SpeedInMetric: String { get { NSLocalizedString("speed_in_metric", comment: "") } }

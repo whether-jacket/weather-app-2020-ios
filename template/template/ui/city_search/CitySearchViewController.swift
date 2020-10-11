@@ -3,16 +3,13 @@ import Foundation
 import SnapKit
 import UIKit
 
-class CitySearchViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class CitySearchViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+
+    private static let MIN_CHAR_SEARCH = 3
     private let searchBar = UISearchBar()
     private let progressBar = DSGradientProgressView()
-    public let citiesTableView = UITableView()
-    private var cities = [
-        CityTableItem(id: 1, cityName: "San Francisco", regionName: "CA"),
-        CityTableItem(id: 1, cityName: "San Diego", regionName: "CA"),
-        CityTableItem(id: 1, cityName: "Tempe", regionName: "AZ")
-    ]
+    private let citiesTableView = UITableView()
+    private var cities: [CityTableItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +17,24 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
         setConstraints()
     }
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.isNotEmpty()) { return }
+        clearResults()
+     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        let searchText = (searchBar.text ?? "").trimmed
+        if (searchText.count < CitySearchViewController.MIN_CHAR_SEARCH) { return }
+        searchForCities(searchText)
+    }
+
     private func initializeViews() {
         searchBar.apply {
+            $0.delegate = self
+            $0.returnKeyType = .search
+            $0.resignFirstResponder()
+            $0.placeholder = Strings.SearchForCity
             view.addSubview($0)
         }
         progressBar.apply {
@@ -48,6 +61,7 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
         }
         progressBar.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(searchBar.snp.bottom)
+            make.height.equalTo(Dimens.ProgressBarHeight)
             make.left.right.equalTo(view.safeAreaLayoutGuide)
         }
         citiesTableView.snp.makeConstraints { (make) -> Void in
@@ -57,7 +71,7 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cities.count
+        return cities.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +88,8 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        let rowClicked = indexPath.row
+        log.verbose("You tapped on: \(cities[rowClicked].cityName).")
     }
     
     private func showProgressBar() {
@@ -89,5 +104,34 @@ class CitySearchViewController : BaseViewController, UITableViewDelegate, UITabl
             $0.isHidden = true
             $0.signal()
         }
+    }
+    
+    private func searchForCities(_ searchText: String) {
+        showProgressBar()
+        clearResults()
+        subscribe(MetaWeatherRepo().getLocationsForCitySearch(cityName: searchText)
+        .subscribeOnIo()
+        .observeOnMain()
+            .do(onNext: { (locationsResponse) in
+                for location in locationsResponse {
+                    let city = CityTableItem(
+                        id: location.woeid,
+                        cityName: location.cityTitle,
+                        regionName: location.locationType
+                    )
+                    self.cities.append(city)
+                }
+                self.citiesTableView.reloadData()
+                self.hideProgressBar()
+            }, onError: { (error) in
+                log.error(error)
+                self.hideProgressBar()
+            })
+        .subscribe())
+    }
+    
+    private func clearResults() {
+        cities = []
+        citiesTableView.reloadData()
     }
 }
