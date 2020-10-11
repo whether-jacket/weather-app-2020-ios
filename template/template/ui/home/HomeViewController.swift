@@ -201,7 +201,7 @@ class HomeViewController: BaseViewController {
                     log.debug("City: " + location.cityTitle)
                 }
             }, onError: { (error) in
-                log.debug(error)
+                log.error(error)
             })
         .subscribe())
     }
@@ -216,7 +216,7 @@ class HomeViewController: BaseViewController {
                 self.bindDataToView(weatherForLocationResponse)
             }, onError: { (error) in
                 self.hideProgressBar()
-                log.debug(error)
+                log.error(error)
             })
         .subscribe())
     }
