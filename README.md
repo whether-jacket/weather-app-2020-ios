@@ -10,7 +10,7 @@ An app show casing iOS's best practices as of 2020.
 
 ## Developer features
 - [In-App design token catalog](https://github.com/seljabali/ios-design-tokens): Catalog of design values used across app.
-- [In-App widget catalog](https://github.com/seljabali/ios-uikit-widget-catalogue): Catalog of iOS views, meant to be used as a reference.
+- In-App widget catalog: Catalog of iOS views, meant to be used as a reference.
 - In-App theme previewer: Catalog of themes along with quick previewing of them.
 
 ## Architecture
