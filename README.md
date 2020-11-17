@@ -1,5 +1,6 @@
 # Weather App 2020 iOS
-An app show casing iOS's best practices as of 2020.
+App aspiring to show casing iOS's best practices as of 2020 along with developer goodies.
+####  👷‍♂️Under construction 🚧
 
 ## User features
 - Search cities you'd like to view temperatures of.
@@ -8,8 +9,8 @@ An app show casing iOS's best practices as of 2020.
 - Offline viewing of last saved weather forecast.
 - Night Mode.
 
-## Developer features
-- [In-App design token catalog](https://github.com/seljabali/ios-design-tokens): Catalog of design values used across app.
+## Developer goodies
+- In-App design token catalog: Catalog of design values used across app.
 - In-App widget catalog: Catalog of iOS views, meant to be used as a reference.
 - In-App theme previewer: Catalog of themes along with quick previewing of them.
 
@@ -33,3 +34,5 @@ An app show casing iOS's best practices as of 2020.
 
 ## License
 [Creative Commons Zero v1.0 Universal.](https://github.com/seljabali/weather-app-2020-android/blob/master/LICENSE)
+
+With exception to the themes: Illini, Seafoam, Tokyo that were published without license by [Joanne Kao](https://github.com/pixelbutter/theme-sample).
