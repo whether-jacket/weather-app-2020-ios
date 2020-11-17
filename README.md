@@ -32,10 +32,13 @@ App aspiring to show casing iOS's best practices as of 2020 along with developer
 - [Swifter Swift](https://github.com/SwifterSwift/SwifterSwift)
 - [Swifty Beaver](https://github.com/SwiftyBeaver/SwiftyBeaver)
 
+## Want to contribute?
+Be my guest & [pick up a ticket please.](https://github.com/whether-jacket/weather-app-2020-ios/issues)
+
 ## Find this repository useful?
 Let me know by throwing [it a star. :star:](https://github.com/whether-jacket/weather-app-2020-ios/stargazers)
 
 ## License
-[Creative Commons Zero v1.0 Universal.](https://github.com/seljabali/weather-app-2020-android/blob/master/LICENSE)
+[Creative Commons Zero v1.0 Universal.](https://github.com/whether-jacket/weather-app-2020-ios/blob/master/LICENSE)
 
 With exception to the themes: Illini, Seafoam, Tokyo that were published without license by [Joanne Kao](https://github.com/pixelbutter/theme-sample).
