@@ -16,7 +16,6 @@ App aspiring to show casing iOS's best practices as of 2020 along with developer
 
 ## Architecture
 - MVI: As presented by Jake Wharton in [Managing State with RxJava](https://jakewharton.com/the-state-of-managing-state-with-rxjava/).
-- Modularization of application: core, database, network, app, etc.
 
 ## Libraries
 - [Cyborg](https://github.com/uber/cyborg)
