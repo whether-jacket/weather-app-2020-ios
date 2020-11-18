@@ -1,18 +1,16 @@
-# Weather App 2020 iOS
-App aspiring to show casing iOS's best practices as of 2020 along with developer goodies.
-####  👷‍♂️Under construction 🚧
+<h1 align="center">Weather App 2020 iOS </h1></br>
+<p align="center">App aspiring to show casing iOS's best practices as of 2020 along with developer goodies.</br> 👷‍♂️Under construction</p></br>
 
-## User features
-- Search cities you'd like to view temperatures of.
-- Save favorite city. 
-- View favorite city's weather forecast.
-- Offline viewing of last saved weather forecast.
+## Features
+- View city's weather.
+- Search & save cities.
 - Night Mode.
 
 ## Developer goodies
-- In-App design token catalog: Catalog of design values used across app.
-- In-App widget catalog: Catalog of iOS views, meant to be used as a reference.
-- In-App theme previewer: Catalog of themes along with quick previewing of them.
+- Design token catalog.
+- Widget catalog.
+- Theme previewer.
+- Utility classes capturing dates, extensions, & more.
 
 ## Architecture
 - MVI: As presented by Jake Wharton in [Managing State with RxJava](https://jakewharton.com/the-state-of-managing-state-with-rxjava/).
@@ -32,7 +30,8 @@ App aspiring to show casing iOS's best practices as of 2020 along with developer
 - [Swifty Beaver](https://github.com/SwiftyBeaver/SwiftyBeaver)
 
 ## Want to contribute?
-Be my guest & [pick up a ticket please.](https://github.com/whether-jacket/weather-app-2020-ios/issues)
+This project is meant to be for developers by developers.<br>
+Be a champ & [pick up a ticket.](https://github.com/whether-jacket/weather-app-2020-ios/issues)
 
 ## Find this repository useful?
 Let me know by throwing [it a star. :star:](https://github.com/whether-jacket/weather-app-2020-ios/stargazers)
