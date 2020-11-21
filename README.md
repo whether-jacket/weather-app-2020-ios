@@ -5,12 +5,21 @@
 - View city's weather.
 - Search & save cities.
 - Night Mode.
+<p align="center">
+<img src="https://github.com/whether-jacket/weather-app-2020-ios/blob/master/screenshots/home.gif?raw=true?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-ios/blob/master/screenshots/cities.gif?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-ios/blob/master/screenshots/settings.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+</p></br>
 
 ## Developer goodies
 - Design token catalog.
 - Widget catalog.
-- Theme previewer.
+- Theming support for iOS.
 - Utility classes capturing dates, extensions, & more.
+<p align="center">
+<img src="https://github.com/whether-jacket/weather-app-2020-ios/blob/master/screenshots/widgets.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-ios/blob/master/screenshots/design_tokens.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+</p></br>
 
 ## Architecture
 - MVI: As presented by Jake Wharton in [Managing State with RxJava](https://jakewharton.com/the-state-of-managing-state-with-rxjava/).
