@@ -16,8 +16,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: 'template'
-      - name: Set XCode Version
-        run: sudo xcode-select -s /Applications/Xcode_11.app
       - name: Install Dependencies
         run: |
           pod install --repo-update
