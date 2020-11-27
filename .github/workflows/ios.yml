@@ -8,16 +8,15 @@ on:
 
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Build & Test default scheme using any available iPhone simulator
     runs-on: macos-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: '/template/'
       - name: Install Dependencies
         run: |
+          cd template
           pod install --repo-update
         shell: bash
       - name: Set Default Scheme
