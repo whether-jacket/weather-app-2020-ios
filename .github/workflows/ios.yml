@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: 'template'
+          path: '/template/'
       - name: Install Dependencies
         run: |
           pod install --repo-update
